@@ -1,6 +1,6 @@
 <h3>Todos os Quartos</h3>
 
-<div class="room-item">
+<div class="room-item conteudo">
     <table id="room-table" striped="true">
         <thead>
             <tr>
@@ -15,7 +15,7 @@
             <tr>
                 <td>{{ room.title }}</td>
                 <td>{{ room.description }}</td>
-                <td>{{ room.host }}</td>
+                <td>{{ room.host.name }} {{room.host.lastName}}</td>
                 <td>{{ room.price }}</td>
                 <td>{{ room.id }}</td>
             </tr>
