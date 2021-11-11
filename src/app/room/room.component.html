@@ -1,27 +1,28 @@
 <h3>Todos os Quartos</h3>
 
-<div class="room-item conteudo">
-    <table id="room-table" striped="true">
-        <thead>
-            <tr>
-                <th data-th="Title">titulo</th>
-                <th data-th="Description">Description</th>
-                <th data-th="Host">Host</th>
-                <th data-th="Price">Price</th>
-                <th data-th="id">Id</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let room of rooms | async">
-            <tr>
-                <td>{{ room.title }}</td>
-                <td>{{ room.description }}</td>
-                <td>{{ room.host.name }} {{room.host.lastName}}</td>
-                <td>{{ room.price }}</td>
-                <td>{{ room.id }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <p></p>
-    <a routerLink="" class="button"> Voltar</a>
-
+<div class="room-item conteudo" *ngIf="rooms">
+  <table id="room-table" striped="true">
+    <thead>
+      <tr>
+        <th data-th="Title">Title</th>
+        <th data-th="City">City</th>
+        <th data-th="Description">Description</th>
+        <th data-th="Host">Host</th>
+        <th data-th="Price">Price</th>
+        <th data-th="id">Id</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let room of rooms">
+      <tr>
+        <td>{{ room.title }}</td>
+        <td>{{ room.city }}</td>
+        <td>{{ room.description }}</td>
+        <td>{{ room.host.name }} {{ room.host.lastName }}</td>
+        <td>{{ room.price }}</td>
+        <td>{{ room.id }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
+  <a routerLink="" class="button"> Voltar</a>
 </div>

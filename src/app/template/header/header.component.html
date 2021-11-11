@@ -1,5 +1,16 @@
 <mat-toolbar class="teste">
-    <span>Airbnb</span>
-    <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Pesquise o quarto">
-    <button type="button" (click)="getRooms()"><i class="material-icons">search</i></button>
+  <span>Airbnb</span>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <input
+      class="form-control"
+      type="text"
+      name="search"
+      autocomplete="off"
+      placeholder="Para onde você vai?"
+      formControlName="city"
+    />
+    <button type="submit">
+      <i class="material-icons">search</i>
+    </button>
+  </form>
 </mat-toolbar>
