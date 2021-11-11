@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Room } from './room';
 import { RoomService } from './room.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EMPTY, Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-room',
@@ -10,21 +12,48 @@ import { RoomService } from './room.service';
   styleUrls: ['./room.component.css'],
 })
 export class RoomComponent implements OnInit {
+  error: Error | undefined;
   constructor(
     private roomService: RoomService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar
   ) {}
 
   rooms: Room[] | undefined;
+
+  showMessage(msg: string, isError: boolean = false): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: isError ? ['msg-error'] : ['msg-succes'],
+    });
+  }
+
+  errorHandler(e: Error): Observable<any> {
+    this.showMessage('Nenhum local encontrado nesta cidade', true);
+    this.error = e;
+    return EMPTY;
+  }
 
   ngOnInit(): void {
     const city = String(this.route.snapshot.paramMap.get('city'));
 
     if (city === '') {
-      this.roomService.getRooms().subscribe((rooms) => (this.rooms = rooms));
+      this.roomService
+        .getRooms()
+        .pipe(
+          map((obj) => obj),
+          catchError((e) => this.errorHandler(e))
+        )
+        .subscribe((rooms) => (this.rooms = rooms));
     } else {
       this.roomService
         .getRoomByCity(city)
+        .pipe(
+          map((obj) => obj),
+          catchError((e) => this.errorHandler(e))
+        )
         .subscribe((rooms) => (this.rooms = rooms));
     }
   }

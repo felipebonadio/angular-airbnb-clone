@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
   onSubmit(): void {
     let cityString = this.searchForm.value.city;
 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
     if (cityString === null) {
       this.router.navigateByUrl('rooms');
     } else {

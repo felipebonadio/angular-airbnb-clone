@@ -1,6 +1,9 @@
-<h3>Todos os Quartos</h3>
+<div *ngIf="error">
+  <h3><img src="../../assets/img/404error.jpg" alt="404 error" /></h3>
+</div>
 
 <div class="room-item conteudo" *ngIf="rooms">
+  <h3>Todos os Quartos</h3>
   <table id="room-table" striped="true">
     <thead>
       <tr>
@@ -24,5 +27,6 @@
     </tbody>
   </table>
   <p></p>
-  <a routerLink="" class="button"> Voltar</a>
 </div>
+
+<a routerLink="" class="button"> Voltar</a>
