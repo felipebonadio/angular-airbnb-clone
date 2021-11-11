@@ -1,1 +1,27 @@
-<p>room works!</p>
+<h3>Todos os Quartos</h3>
+
+<div class="room-item">
+    <table id="room-table" striped="true">
+        <thead>
+            <tr>
+                <th data-th="Title">titulo</th>
+                <th data-th="Description">Description</th>
+                <th data-th="Host">Host</th>
+                <th data-th="Price">Price</th>
+                <th data-th="id">Id</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let room of rooms | async">
+            <tr>
+                <td>{{ room.title }}</td>
+                <td>{{ room.description }}</td>
+                <td>{{ room.host }}</td>
+                <td>{{ room.price }}</td>
+                <td>{{ room.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <a routerLink="" class="button"> Voltar</a>
+
+</div>
