@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GuestComponent } from './guest/guest.component';
 import { HomeComponent } from './home/home.component';
+import { HostComponent } from './host/host.component';
 import { RoomComponent } from './room/room.component';
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'hosts',
-    component: GuestComponent,
+    component: HostComponent,
   },
 ];
 
