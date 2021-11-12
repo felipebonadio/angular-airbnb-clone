@@ -1,27 +1,30 @@
-<h3>Todos os Quartos</h3>
-
-<div class="room-item conteudo">
-    <table id="room-table" striped="true">
-        <thead>
-            <tr>
-                <th data-th="Title">titulo</th>
-                <th data-th="Description">Description</th>
-                <th data-th="Host">Host</th>
-                <th data-th="Price">Price</th>
-                <th data-th="id">Id</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let room of rooms | async">
-            <tr>
-                <td>{{ room.title }}</td>
-                <td>{{ room.description }}</td>
-                <td>{{ room.host.name }} {{room.host.lastName}}</td>
-                <td>{{ room.price }}</td>
-                <td>{{ room.id }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <p></p>
-    <a routerLink="" class="button"> Voltar</a>
-
+<div *ngIf="error" class="error">
+  <h3><img src="../../assets/img/404error.jpg" alt="404 error" /></h3>
 </div>
+
+<mat-card class="card mat-elevation-z5" *ngFor="let room of rooms">
+  <a [routerLink]="['/rooms', room.id]">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg">
+      <mat-card-title>{{ room.title }} (Hospedado por {{ room.host.name }} {{ room.host.lastName }}) </mat-card-title>
+      <mat-card-subtitle>{{ room.city }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{room.description}}</p>
+      <p>{{room.price | currency}} / noite</p>
+    </mat-card-content>
+  </a>
+  <mat-card-actions>
+    Contatos:
+    <a href="https://wa.me/5514991518232" target="_blank"><span class="material-icons"
+        style="color: rgb(10, 189, 10)">whatsapp</span></a>
+    <a href="mailto:febonadio@gmail.com" target="_blank"><span class="material-icons"
+        style="color: red">email</span></a>
+  </mat-card-actions>
+
+</mat-card>
+
+
+//TODO PRECISO DO TELEFONE E EMAIL DO HOST
+//TODO PRECISO DE GETBYID PARA DIRECIONAR O CARD

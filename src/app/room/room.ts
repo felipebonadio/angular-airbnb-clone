@@ -1,10 +1,10 @@
-import { Host } from "../host/host";
-    
+import { Host } from '../host/host';
 
-export interface Room{
-    id: string;
-    title: string;
-    description: string;
-    host: Host;
-    price: string;
+export interface Room {
+  id: string;
+  title: string;
+  description: string;
+  host: Host;
+  price: string;
+  city: string;
 }

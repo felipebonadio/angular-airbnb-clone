@@ -1,5 +1,18 @@
-<mat-toolbar class="teste">
-    <span>Airbnb</span>
-    <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Pesquise o quarto">
-    <button type="button" (click)="getRooms()"><i class="material-icons">search</i></button>
-</mat-toolbar>
+<div class="display">
+  <div><a routerLink=""><img src="../../../assets/img/logo.jpg" alt="logo"></a> </div>
+  <div>
+    <mat-toolbar>
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Para onde você vai?"
+          formControlName="city" />
+        <button type="submit" class="button">
+          <i class="material-icons matSuffix" style="color:rgb(175, 21, 93); font-size:37px">search</i>
+        </button>
+      </form>
+    </mat-toolbar>
+  </div>
+  <div>
+    <a routerLink="/hosts"><span class="material-icons direita" style="color:white; font-size:50px">gite</span></a>
+    <a routerLink="/guests"><span class="material-icons direita " style="color:white; font-size:50px">account_circle</span></a>
+  </div>
+</div>
