@@ -1,5 +1,8 @@
-.teste{
-    background-color: black;
-    color: white;
-    height: 30px;
+.teste {
+  background-color: black;
+  color: white;
+  height: 30px;
+}
+a {
+  text-decoration: none;
 }
