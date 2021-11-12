@@ -1,17 +1,30 @@
-.conteudo{
-    margin: 20px;
-    padding: 10px;
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  th, td {
-    padding: 0.25rem;
-    text-align: left;
-    border: 1px solid #ccc;
-  }
-  tbody tr:nth-child(odd) {
-    background: #eee;
-  }
+.error h3 img {
+  margin-top: 50px;
+  max-width: 100%;
+}
+.card {
+  max-width: 35%;
+  margin: auto;
+  padding: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+mat-card-title {
+  font-size: 1.6em;
+}
+mat-card-content {
+  font-size: 1.3em;
+}
+a{
+  text-decoration: none;
+  vertical-align: middle;
+  color: black;
+}
+mat-card-actions{
+  font-size: 1.3em;
+}

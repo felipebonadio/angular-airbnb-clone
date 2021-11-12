@@ -12,13 +12,14 @@ import { catchError, map } from 'rxjs/operators';
   styleUrls: ['./room.component.css'],
 })
 export class RoomComponent implements OnInit {
-  error: Error | undefined;
+  
   constructor(
     private roomService: RoomService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar
   ) {}
-
+  
+  error: Error | undefined;
   rooms: Room[] | undefined;
 
   showMessage(msg: string, isError: boolean = false): void {

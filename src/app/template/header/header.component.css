@@ -1,8 +1,36 @@
-.teste {
-  background-color: black;
-  color: white;
-  height: 30px;
+.display {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
 }
-a {
-  text-decoration: none;
+
+.display mat-toolbar {
+  background-color: transparent;
+}
+
+mat-toolbar input {
+  position: relative;
+  width: 300px;
+  text-align: center;
+  height: 40px;
+  background-color: white;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border: 0;
+}
+
+mat-toolbar form button {
+  vertical-align: middle;
+  background-color: white;
+  border: 0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.direita {
+  margin-right: 30px;
 }

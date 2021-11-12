@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuestComponent } from './guest/guest.component';
 import { HomeComponent } from './home/home.component';
 import { RoomComponent } from './room/room.component';
 
@@ -15,6 +16,18 @@ const routes: Routes = [
   {
     path: 'rooms/:city',
     component: RoomComponent,
+  },
+  {
+    path: 'rooms/:id',
+    component: RoomComponent,
+  },
+  {
+    path: 'guests',
+    component: GuestComponent,
+  },
+  {
+    path: 'hosts',
+    component: GuestComponent,
   },
 ];
 
