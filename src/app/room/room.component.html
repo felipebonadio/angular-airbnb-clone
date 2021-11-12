@@ -4,27 +4,39 @@
 
 <mat-card class="card mat-elevation-z5" *ngFor="let room of rooms">
   <a [routerLink]="['/rooms', room.id]">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img
+      mat-card-image
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
     <mat-card-header>
-      <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg">
-      <mat-card-title>{{ room.title }} (Hospedado por {{ room.host.name }} {{ room.host.lastName }}) </mat-card-title>
+      <img
+        mat-card-avatar
+        src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+      />
+      <mat-card-title
+        >{{ room.title }} (Hospedado por {{ room.host.name }}
+        {{ room.host.lastName }})
+      </mat-card-title>
       <mat-card-subtitle>{{ room.city }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p>{{room.description}}</p>
-      <p>{{room.price | currency}} / noite</p>
+      <p>{{ room.description }}</p>
+      <p>{{ room.price | currency }} / noite</p>
     </mat-card-content>
   </a>
   <mat-card-actions>
     Contatos:
-    <a href="https://wa.me/5514991518232" target="_blank"><span class="material-icons"
-        style="color: rgb(10, 189, 10)">whatsapp</span></a>
-    <a href="mailto:febonadio@gmail.com" target="_blank"><span class="material-icons"
-        style="color: red">email</span></a>
+    <a href="https://wa.me/5514991518232" target="_blank"
+      ><span class="material-icons" style="color: rgb(10, 189, 10)"
+        >whatsapp</span
+      ></a
+    >
+    <a href="mailto:febonadio@gmail.com" target="_blank"
+      ><span class="material-icons" style="color: red">email</span></a
+    >
   </mat-card-actions>
-
 </mat-card>
 
-
-//TODO PRECISO DO TELEFONE E EMAIL DO HOST
-//TODO PRECISO DE GETBYID PARA DIRECIONAR O CARD
+//TODO PRECISO DO TELEFONE E EMAIL DO HOST //TODO PRECISO DE GETBYID PARA
+DIRECIONAR O CARD
