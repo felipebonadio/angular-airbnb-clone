@@ -5,6 +5,7 @@ import { GuestService } from './guest.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'app-guest',
@@ -12,7 +13,7 @@ import { catchError, map } from 'rxjs/operators';
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
-
+  bodyText!: string;
   guests: Guest[] | undefined;
   error: Error | undefined;
 
@@ -33,9 +34,18 @@ export class GuestComponent implements OnInit {
 
 
   constructor(private guestService: GuestService, private route: ActivatedRoute,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar, private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.guestService.getGuests().subscribe((guests) => (this.guests = guests));
+    this.bodyText = 'This text can be updated in modal 1';
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

@@ -1,4 +1,5 @@
 import { Reserve } from "../reserve/reserve";
+export * from './guest.component'
 
 export interface Guest {
     id: string;

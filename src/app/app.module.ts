@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { ReserveComponent } from './reserve/reserve.component';
+import { ModalComponent } from './modal/modal.component';
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { ReserveComponent } from './reserve/reserve.component';
     HeaderComponent,
     FooterComponent,
     ReserveComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { ReserveComponent } from './reserve/reserve.component';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent],
