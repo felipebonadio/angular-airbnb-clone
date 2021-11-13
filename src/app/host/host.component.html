@@ -1,1 +1,38 @@
-<p>host works!</p>
+<mat-card class="card mat-elevation-z5" *ngFor="let host of hosts">
+    <mat-card-header>
+        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
+        <mat-card-title>
+            Nome : {{ host.name}} {{ host.lastName }}
+        </mat-card-title>
+        <mat-card-title>
+            Email: {{host.email}}
+        </mat-card-title>
+        <mat-card-title>
+            Telefone: {{host.phone}}
+        </mat-card-title>
+        <mat-card-title>
+            <p>Quartos</p>
+           {{host.rooms.title}}
+           {{host.rooms.description}}
+           {{host.rooms.city}}
+           {{host.rooms.price}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-icon-button color="primary">
+            <mat-icon>
+                save
+            </mat-icon>
+        </button>
+        <button mat-icon-button color="primary">
+            <mat-icon>
+                delete
+            </mat-icon>
+        </button>
+        <button mat-icon-button color="primary">
+            <mat-icon>
+                update
+            </mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

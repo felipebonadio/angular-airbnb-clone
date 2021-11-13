@@ -13,7 +13,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class GuestComponent implements OnInit {
 
-  guests : Guest[] | undefined;
+  guests: Guest[] | undefined;
   error: Error | undefined;
 
   showMessage(msg: string, isError: boolean = false): void {
@@ -26,7 +26,7 @@ export class GuestComponent implements OnInit {
   }
 
   errorHandler(e: Error): Observable<any> {
-    this.showMessage('Nenhum local encontrado nesta cidade', true);
+    this.showMessage('Erro ao trazer a lista de pessoas', true);
     this.error = e;
     return EMPTY;
   }
@@ -35,7 +35,7 @@ export class GuestComponent implements OnInit {
   constructor(private guestService: GuestService, private route: ActivatedRoute,
     private snackBar: MatSnackBar) { }
 
-  ngOnInit(): void {   
-    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));  
-  }  
+  ngOnInit(): void {
+    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));
+  }
 }

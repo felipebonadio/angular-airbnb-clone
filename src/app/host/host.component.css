@@ -1,0 +1,26 @@
+.card {
+    max-width: 35%;
+    max-height: 100%;
+    margin: auto;
+    padding: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  mat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  mat-card-actions {
+    font-size: 1.3em;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  mat-card-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

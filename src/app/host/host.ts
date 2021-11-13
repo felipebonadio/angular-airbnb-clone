@@ -1,11 +1,11 @@
 import { Room } from "../room/room";
 
-export interface Host{
+export interface Host {
     id: string;
-    email : string;
+    email: string;
     password: string;
     name: string;
     lastName: string;
     phone: string;
-    rooms: Room[];
+    rooms: Room;
 }

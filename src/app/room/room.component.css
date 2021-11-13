@@ -20,11 +20,11 @@ mat-card-title {
 mat-card-content {
   font-size: 1.3em;
 }
-a{
+a {
   text-decoration: none;
   vertical-align: middle;
   color: black;
 }
-mat-card-actions{
+mat-card-actions {
   font-size: 1.3em;
 }

@@ -12,16 +12,16 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
-  
-  
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
+
+
   searchForm = this.formBuilder.group({
     city: '',
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  getGuests(): void{
+  getGuests(): void {
     this.router.navigateByUrl('guests')
   }
 
@@ -35,5 +35,5 @@ export class HeaderComponent implements OnInit {
     } else {
       this.router.navigate(['rooms', cityString]);
     }
-  } 
+  }
 }

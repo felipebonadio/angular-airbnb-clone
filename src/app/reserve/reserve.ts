@@ -1,10 +1,10 @@
 import { Guest } from "../guest/guest";
 import { Room } from "../room/room";
 
-export interface Reserve{
+export interface Reserve {
     id: string;
     checkIn: Date;
     checkOut: Date;
-    room : Room;
+    room: Room;
     guest: Guest;
 }

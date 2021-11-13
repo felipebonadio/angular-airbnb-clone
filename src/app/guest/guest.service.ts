@@ -7,10 +7,10 @@ import { Guest } from './guest';
 @Injectable({
   providedIn: 'root'
 })
-export class GuestService {  
+export class GuestService {
   entityUrl = environment.REST_API_URL + 'guests';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getGuests(): Observable<Guest[]> {
     return this.http.get<Guest[]>(this.entityUrl);

@@ -6,6 +6,11 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+mat-card-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 mat-card-actions {
   display: flex;
   align-items: center;
@@ -15,6 +20,12 @@ mat-card-actions {
   font-size: 1.3em;
 }
 img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
+mat-card-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

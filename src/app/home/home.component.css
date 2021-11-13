@@ -1,23 +1,20 @@
-.image{
-    height:84.7%; 
-    background-size:cover;    
-    background-image:url('../../assets/img/back.jpeg');
-    background-position:50% 50%;   
-    background-repeat: no-repeat;
-     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-    color: white;
+.image {
+  height: 84.7%;
+  background-size: cover;
+  background-image: url("../../assets/img/back.jpeg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-.centro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-    color: white;
-    
+.centro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
-
- 

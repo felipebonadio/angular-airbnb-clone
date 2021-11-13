@@ -10,7 +10,7 @@ import { Host } from './host';
 export class HostService {
   entityUrl = environment.REST_API_URL + 'hosts';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getHosts(): Observable<Host[]> {
     return this.http.get<Host[]>(this.entityUrl);

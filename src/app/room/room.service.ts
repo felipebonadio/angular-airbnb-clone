@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class RoomService {
   entityUrl = environment.REST_API_URL + 'rooms';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getRooms(): Observable<Room[]> {
     return this.http.get<Room[]>(this.entityUrl);

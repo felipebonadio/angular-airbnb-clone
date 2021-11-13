@@ -1,11 +1,11 @@
 import { Reserve } from "../reserve/reserve";
 
-export interface Guest{
+export interface Guest {
     id: string;
-    email : string;
+    email: string;
     password: string;
     name: string;
     lastName: string;
-    phone: string; 
-    reserve: Reserve;   
+    phone: string;
+    reserve: Reserve;
 }
