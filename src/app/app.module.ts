@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { ReserveComponent } from './reserve/reserve.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
     GuestComponent,
     HeaderComponent,
     FooterComponent,
+    ReserveComponent,
   ],
   imports: [
     BrowserModule,

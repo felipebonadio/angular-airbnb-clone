@@ -36,7 +36,6 @@ export class GuestComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {   
-    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));
-  }
-  
+    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));  
+  }  
 }
