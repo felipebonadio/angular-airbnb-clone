@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Host } from './host/host';
-import { Room } from './room/room';
+import { Host } from './host';
 
 @Injectable({
   providedIn: 'root',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Guest } from './guest';
 import { GuestService } from './guest.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,9 +13,30 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class GuestComponent implements OnInit {
 
-  constructor() { }
+  guests : Guest[] | undefined;
+  error: Error | undefined;
+
+  showMessage(msg: string, isError: boolean = false): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: isError ? ['msg-error'] : ['msg-succes'],
+    });
+  }
+
+  errorHandler(e: Error): Observable<any> {
+    this.showMessage('Nenhum local encontrado nesta cidade', true);
+    this.error = e;
+    return EMPTY;
+  }
+
+
+  constructor(private guestService: GuestService, private route: ActivatedRoute,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {   
+    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));
   }
   
 }

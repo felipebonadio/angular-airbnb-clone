@@ -1,6 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Guest } from 'src/app/guest/guest';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +13,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   constructor(private router: Router, private formBuilder: FormBuilder) {}
-
+  
+  
   searchForm = this.formBuilder.group({
     city: '',
   });
 
   ngOnInit(): void {}
+
+  getGuests(): void{
+    this.router.navigateByUrl('guests')
+  }
 
   onSubmit(): void {
     let cityString = this.searchForm.value.city;
@@ -26,5 +35,5 @@ export class HeaderComponent implements OnInit {
     } else {
       this.router.navigate(['rooms', cityString]);
     }
-  }
+  } 
 }
