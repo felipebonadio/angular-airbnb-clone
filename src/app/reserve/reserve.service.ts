@@ -21,7 +21,7 @@ export class ReserveService {
     return this.http.get<Reserve>(this.entityUrl + '/' + id);
   }
 
-  getReservesByHost(host:string):Observable<Reserve[]>{
+  getReservesByGuest(host:string):Observable<Reserve[]>{
     return this.http.get<Reserve[]>(this.entityUrl+ '/'+ host);
   }
 }
