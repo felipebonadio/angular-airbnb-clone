@@ -7,5 +7,5 @@ export interface Host {
     name: string;
     lastName: string;
     phone: string;
-    rooms: Room;
+    rooms: Room[];
 }

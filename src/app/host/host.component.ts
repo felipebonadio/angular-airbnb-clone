@@ -6,6 +6,7 @@ import { Host } from './host';
 import { HostService } from './host.service';
 import { ModalService } from '../modal/modal.service';
 import { FormBuilder } from '@angular/forms';
+import { Room } from '../room/room';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class HostComponent implements OnInit {
   host: Host;
   hosts: Host[] | undefined;
   error: Error | undefined;
+ 
 
   constructor(private hostService: HostService, private route: ActivatedRoute, private snackBar: MatSnackBar, private modalService: ModalService, private formBuilder: FormBuilder) {
     this.host = {} as Host;
@@ -59,17 +61,16 @@ export class HostComponent implements OnInit {
     phone:''
   })
   
-  onSubmit(host: Host) {
-    host.id = '';
-    host.email='';
-    host.password='';
-    host.name='';
-    host.lastName='';
-    host.phone='';    
+  onSave(host: Host) {    
+    this.host.name=this.hostForm.value.name;
+    this.host.lastName=this.hostForm.value.lastName;
+    this.host.email=this.hostForm.value.email;
+    this.host.password=this.hostForm.value.password;
+    this.host.phone=this.hostForm.value.phone;
     this.hostService.createHost(host).subscribe(
       newHost => {
         this.host = newHost;    
       },
-      error => this.error = error as any);
+      error => this.error = error as any); 
   }
 }

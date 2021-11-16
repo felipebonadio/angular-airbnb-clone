@@ -19,14 +19,16 @@
         </mat-card-title>
         <mat-card-title>
             <p>Quartos</p>
-           {{host.rooms.title}}
-           {{host.rooms.description}}
-           {{host.rooms.city}}
-           {{host.rooms.price}}
+            <ul *ngFor="let room of host.rooms">
+           <li>{{room.title}}</li>
+           <li>{{room.description}}</li>
+           <li>{{room.city}}</li>
+           <li>{{room.price}}</li>
+        </ul>
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>        
-        <button mat-icon-button (click)="openModal('update')">
+        <button mat-icon-button (click)="openModal('updateHost')">
             <mat-icon>
                 update
             </mat-icon>
@@ -46,53 +48,7 @@
 
 <jw-modal id="saveHost">
     <h1>Insira os dados para cadastro</h1>
-    <form class="form">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232">
-        </mat-form-field>
-        <button (click)="closeModal('saveHost');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('saveHost');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
-
-
-</jw-modal>
-
-<jw-modal id="delete">
-    <h1>Tem certeza que deseja excluir?</h1>
-    <button (click)="closeModal('delete');" mat-stroked-button color="primary">Salvar</button>
-    <button (click)="closeModal('delete');" mat-stroked-button color="accent">Cancelar</button>
-</jw-modal>
-
-<jw-modal id="update">
-    <h1>Insira os dados para atualizar</h1>
-    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSubmit(host)">
+    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
         <table class="full-width" cellspacing="0">
             <tr>
                 <td>
@@ -125,6 +81,52 @@
         </mat-form-field>
         <button type="submit" (click)="closeModal('saveHost');" mat-stroked-button color="primary">Salvar</button>
         <button (click)="closeModal('saveHost');" mat-stroked-button color="accent">Cancelar</button>
+    </form>
+
+
+</jw-modal>
+
+<jw-modal id="delete">
+    <h1>Tem certeza que deseja excluir?</h1>
+    <button (click)="closeModal('delete');" mat-stroked-button color="primary">Salvar</button>
+    <button (click)="closeModal('delete');" mat-stroked-button color="accent">Cancelar</button>
+</jw-modal>
+
+<jw-modal id="updateHost">
+    <h1>Insira os dados para atualizar</h1>
+    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Sobrenome</mat-label>
+                        <input matInput formControlName="lastName">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <textarea matInput formControlName="password"></textarea>
+            </mat-form-field>
+        </p>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput placeholder="55(14)991518232" formControlName="phone">
+        </mat-form-field>
+        <button type="submit" (click)="closeModal('updateHost');" mat-stroked-button color="primary">Salvar</button>
+        <button (click)="closeModal('updateHost');" mat-stroked-button color="accent">Cancelar</button>
     </form>
 </jw-modal>
 
