@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Room } from '../room/room';
 import { RoomService } from '../room/room.service';
@@ -17,6 +18,8 @@ export class ReserveComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  
+  date = new FormControl(new Date());
+  serializedDate = new FormControl(new Date().toISOString());
+  selected = 'option2';
 
 }

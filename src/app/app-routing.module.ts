@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'reserves/:id',
     component: ReserveComponent,
   },
+  {
+    path: 'reserves',
+    component: ReserveComponent,
+  },
 ];
 
 @NgModule({
