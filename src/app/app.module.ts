@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { ReserveComponent } from './reserve/reserve.component';
 import { ModalComponent } from './modal/modal.component';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -45,7 +46,8 @@ import { ModalComponent } from './modal/modal.component';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   
   ],
   providers: [],

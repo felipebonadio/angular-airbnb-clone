@@ -37,8 +37,7 @@ export class GuestComponent implements OnInit {
     private snackBar: MatSnackBar, private modalService: ModalService) { }
 
   ngOnInit(): void {
-    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));
-    this.bodyText = 'This text can be updated in modal 1';
+    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));   
   }
 
   openModal(id: string) {

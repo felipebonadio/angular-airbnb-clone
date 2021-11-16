@@ -29,3 +29,26 @@ mat-card-header{
   justify-content: center;
 }
 
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+button{
+  margin-right: 8px;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}

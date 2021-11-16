@@ -1,9 +1,10 @@
-<button mat-icon-button (click)="openModal('saveGuest')"> Crie um novo usuário
-    <mat-icon>
-        save
-    </mat-icon>
-</button>
-
+<div class="center">
+    <button class="center" mat-icon-button (click)="openModal('saveGuest')"> Clique aqui parar criar um novo usuário
+        <mat-icon>
+            save
+        </mat-icon>
+    </button>
+</div>
 <mat-card class="card mat-elevation-z5" *ngFor="let guest of guests">
     <mat-card-header>
         <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
@@ -22,17 +23,17 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>
-        <button mat-icon-button (click)="openModal('delete')">
-            <mat-icon>
-                delete
-            </mat-icon>
-        </button>
-        <button mat-icon-button (click)="openModal('update')">
+        <button mat-icon-button (click)="openModal('updateGuest')">
             <mat-icon>
                 update
             </mat-icon>
         </button>
-        <button mat-icon-button (click)="openModal('custom-modal-1')">
+        <button mat-icon-button (click)="openModal('deleteGuest')">
+            <mat-icon>
+                delete
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="openModal('updateReserve')">
             <mat-icon>
                 gite
             </mat-icon>
@@ -40,36 +41,92 @@
     </mat-card-actions>
 </mat-card>
 
-<jw-modal id="saveGuest">
+<jw-modal class ="center-modal" id="saveGuest">
     <h1>Insira os dados para cadastro</h1>
-    <p>Nome: <input type="text"></p>
-    <p>Sobrenome: <input type="text"></p>
-    <p>Email: <input type="text"></p>
-    <p>Senha: <input type="text"></p>
-    <p>Telefone: <input type="text"></p>
-    <button (click)="closeModal('saveGuest');">Salvar</button>
-    <button (click)="closeModal('saveGuest');">Close</button>
+    <form class="form">
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Sobrenome</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <textarea matInput placeholder="exemplo@exemplo.com.br"></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </p>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput placeholder="55(14)991518232">
+        </mat-form-field>
+        <button (click)="closeModal('saveGuest');" mat-stroked-button color="primary">Salvar</button>
+        <button (click)="closeModal('saveGuest');" mat-stroked-button color="accent">Cancelar</button>
+    </form>
+
+
 </jw-modal>
 
-<jw-modal id="delete">
+<jw-modal id="deleteGuest">
     <h1>Tem certeza que deseja excluir?</h1>
-    <button (click)="closeModal('delete');">Sim</button>
-    <button (click)="closeModal('delete');">Close</button>
+    <button (click)="closeModal('deleteGuest');" mat-stroked-button color="primary">Salvar</button>
+    <button (click)="closeModal('deleteGuest');" mat-stroked-button color="accent">Cancelar</button>
 </jw-modal>
 
-<jw-modal id="update">
-    <h1>Insira os dados para cadastro</h1>
-    <p>Nome: <input type="text"></p>
-    <p>Sobrenome: <input type="text"></p>
-    <p>Email: <input type="text"></p>
-    <p>Senha: <input type="text"></p>
-    <p>Telefone: <input type="text"></p>
-    <button (click)="closeModal('update');">Salvar</button>
-    <button (click)="closeModal('update');">Close</button>
+<jw-modal id="updateGuest">
+    <h1>Insira os dados para atualizar</h1>
+    <form class="form">
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Sobrenome</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <textarea matInput placeholder="exemplo@exemplo.com.br"></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </p>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput placeholder="55(14)991518232">
+        </mat-form-field>
+        <button (click)="closeModal('updateGuest');" mat-stroked-button color="primary">Salvar</button>
+        <button (click)="closeModal('updateGuest');" mat-stroked-button color="accent">Cancelar</button>
+    </form>
 </jw-modal>
 
-<jw-modal id="custom-modal-1">
+<jw-modal id="updateReserve">
     <h1>A Custom Modal!</h1>
     <p>Home page text: <input type="text"></p>
-    <button (click)="closeModal('custom-modal-1');">Close</button>
+    <button (click)="closeModal('updateReserve');">Close</button>
 </jw-modal>
