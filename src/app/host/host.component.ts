@@ -5,6 +5,7 @@ import { EMPTY, Observable } from 'rxjs';
 import { Host } from './host';
 import { HostService } from './host.service';
 import { ModalService } from '../modal/modal.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -14,8 +15,13 @@ import { ModalService } from '../modal/modal.service';
 })
 export class HostComponent implements OnInit {
 
+  host: Host;
   hosts: Host[] | undefined;
   error: Error | undefined;
+
+  constructor(private hostService: HostService, private route: ActivatedRoute, private snackBar: MatSnackBar, private modalService: ModalService, private formBuilder: FormBuilder) {
+    this.host = {} as Host;
+   }
 
   showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
@@ -31,9 +37,7 @@ export class HostComponent implements OnInit {
     this.error = e;
     return EMPTY;
   }
-
-
-  constructor(private hostService: HostService, private route: ActivatedRoute, private snackBar: MatSnackBar, private modalService: ModalService) { }
+  
 
   ngOnInit(): void {
     this.hostService.getHosts().subscribe((hosts) => (this.hosts = hosts));
@@ -45,5 +49,27 @@ export class HostComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  hostForm = this.formBuilder.group({
+    name:'',
+    lastName:'',
+    email: '',
+    password: '',
+    phone:''
+  })
+  
+  onSubmit(host: Host) {
+    host.id = '';
+    host.email='';
+    host.password='';
+    host.name='';
+    host.lastName='';
+    host.phone='';    
+    this.hostService.createHost(host).subscribe(
+      newHost => {
+        this.host = newHost;    
+      },
+      error => this.error = error as any);
   }
 }

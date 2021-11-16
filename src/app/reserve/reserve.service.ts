@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Room } from '../room/room';
+import { RoomService } from '../room/room.service';
 import { Reserve } from './reserve';
 
 @Injectable({
@@ -9,11 +12,12 @@ import { Reserve } from './reserve';
 })
 export class ReserveService {
 
+ 
   entityUrl = environment.REST_API_URL + 'reserves';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private router: Router, private route: ActivatedRoute, private roomService: RoomService) { }
 
-  getReservers(): Observable<Reserve[]> {
+  getReserves(): Observable<Reserve[]> {
     return this.http.get<Reserve[]>(this.entityUrl);
   }
 
@@ -24,4 +28,5 @@ export class ReserveService {
   getReservesByGuest(host:string):Observable<Reserve[]>{
     return this.http.get<Reserve[]>(this.entityUrl+ '/'+ host);
   }
+  
 }

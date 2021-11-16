@@ -19,4 +19,9 @@ export class HostService {
   getHostsById(id: string): Observable<Host> {
     return this.http.get<Host>(this.entityUrl + '/' + id);
   }
+
+  createHost(host: Host): Observable<Host>{
+    return this.http.post<Host>(this.entityUrl, host);
+  }
+  
 }

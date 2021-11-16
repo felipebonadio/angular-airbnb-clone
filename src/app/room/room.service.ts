@@ -23,4 +23,8 @@ export class RoomService {
   getRoomByHost(host:string):Observable<Room[]>{
     return this.http.get<Room[]>(this.entityUrl+ '/'+ host);
   }
+
+  getRoomById(id: string): Observable<Room> {
+    return this.http.get<Room>(this.entityUrl + '/' + id);
+  }
 }

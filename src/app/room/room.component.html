@@ -3,7 +3,7 @@
 </div>
 
 <mat-card class="card mat-elevation-z5" *ngFor="let room of rooms">
-  <a [routerLink]="['/rooms', room.id]">
+  <a [routerLink]="['/reserves', room.id]">   <!-- DIRECIONAMENTO PARA RESERVAS -->
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" />
     <mat-card-header>
       <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
