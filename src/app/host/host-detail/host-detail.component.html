@@ -5,8 +5,7 @@
         </mat-icon>
     </button>
 </div>
-<mat-card class="card mat-elevation-z5" *ngFor="let host of hosts">
-
+<mat-card class="card mat-elevation-z5" *ngIf="host">
     <mat-card-header>
         <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
         <mat-card-title>
@@ -29,60 +28,26 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>
-        <a [routerLink]="['/hosts', host.id]">
-            <button mat-icon-button (click)="openModal('updateHost')"> Clique para mais detalhes
-                <mat-icon>
-                    manage_accounts
-                </mat-icon>
-            </button>
-        </a>
+        <button mat-icon-button (click)="openModal('updateHost')">
+            <mat-icon>
+                update
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="openModal('delete')">
+            <mat-icon>
+                delete
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="openModal('updateRoom')">
+            <mat-icon>
+                gite
+            </mat-icon>
+        </button>
     </mat-card-actions>
-
 </mat-card>
-
-<jw-modal id="saveHost">
-    <h1>Insira os dados para cadastro</h1>
-    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput formControlName="name">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput formControlName="lastName">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput formControlName="password"></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232" formControlName="phone">
-        </mat-form-field>
-        <button type="submit" (click)="closeModal('saveHost');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('saveHost');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
-
-
-</jw-modal>
 
 <jw-modal id="delete">
     <h1>Tem certeza que deseja excluir?</h1>
-    <h2>{{deleteId}}</h2>
     <button (click)="onDelete(host)" mat-stroked-button color="primary">Excluir</button>
     <button (click)="closeModal('delete');" mat-stroked-button color="accent">Cancelar</button>
 </jw-modal>
@@ -93,7 +58,7 @@
 
 <jw-modal id="updateHost">
     <h1>Insira os dados para atualizar</h1>
-    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
+    <form class="form" [formGroup]="hostForm" (ngSubmit)="onUpdate()">
         <table class="full-width" cellspacing="0">
             <tr>
                 <td>

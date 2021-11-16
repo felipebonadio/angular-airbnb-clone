@@ -2,24 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
-import { Host } from './host';
-import { HostService } from './host.service';
-import { ModalService } from '../modal/modal.service';
+import { Host } from '../host';
+import { HostService } from '../host.service';
+import { ModalService } from '../../modal/modal.service';
 import { FormBuilder } from '@angular/forms';
-import { Room } from '../room/room';
+
 
 
 @Component({
-  selector: 'app-host',
-  templateUrl: './host.component.html',
-  styleUrls: ['./host.component.css']
+  selector: 'app-host-detail',
+  templateUrl: './host-detail.component.html',
+  styleUrls: ['./host-detail.component.css']
 })
-export class HostComponent implements OnInit {
+export class HostDetailComponent implements OnInit {
 
   host: Host;
-  hosts: Host[] | undefined;
   error: Error | undefined;
-  deleteId: string | undefined;
 
 
   constructor(private hostService: HostService, private route: ActivatedRoute, private snackBar: MatSnackBar, private modalService: ModalService, private formBuilder: FormBuilder) {
@@ -43,13 +41,11 @@ export class HostComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.hostService.getHosts().subscribe((hosts) => (this.hosts = hosts));
+    const paramId = String(this.route.snapshot.paramMap.get("id"));
+    this.hostService.getHostsById(paramId).subscribe(host => this.host = host);
   }
 
-  openModalDelete(id: string, hostId: string) {
-    this.deleteId = hostId;
-    this.modalService.open(id);
-  }
+
   openModal(id: string) {
     this.modalService.open(id);
   }
@@ -66,18 +62,6 @@ export class HostComponent implements OnInit {
     phone: ''
   })
 
-  onSave(host: Host) {
-    this.host.name = this.hostForm.value.name;
-    this.host.lastName = this.hostForm.value.lastName;
-    this.host.email = this.hostForm.value.email;
-    this.host.password = this.hostForm.value.password;
-    this.host.phone = this.hostForm.value.phone;
-    this.hostService.createHost(host).subscribe(
-      newHost => {
-        this.host = newHost;
-      },
-      error => this.error = error as any);
-  }
 
   onDelete(host: Host) {
     this.hostService.deleteHost(host.id).subscribe(
@@ -87,7 +71,20 @@ export class HostComponent implements OnInit {
           this.openModal('deleteOk');
       },
       error => this.error = error as any);
+  }
 
+  onUpdate() { 
+    this.host.name = this.hostForm.value.name;
+    this.host.lastName = this.hostForm.value.lastName;
+    this.host.email = this.hostForm.value.email;
+    this.host.password = this.hostForm.value.password;
+    this.host.phone = this.hostForm.value.phone;
+    this.hostService.updateHost(this.host.id,this.host).subscribe(
+      newHost => {
+        this.host = newHost;
+      },
+      error => this.error = error as any);
+      
   }
 
 }

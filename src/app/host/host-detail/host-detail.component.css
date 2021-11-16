@@ -6,7 +6,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-mat-card-header{
+mat-card-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@ img {
   width: 150px;
   height: 150px;
 }
-mat-card-header{
+mat-card-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,15 +43,12 @@ td {
   padding-right: 8px;
 }
 
-button{
+button {
   margin-right: 8px;
 }
 
-.center{
+.center {
   display: flex;
   align-items: center;
-  justify-content: center; 
-}
-a{
-  text-decoration: none;
+  justify-content: center;
 }

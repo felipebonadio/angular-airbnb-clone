@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { HostDetailComponent } from './host/host-detail/host-detail.component';
 
 
 
@@ -37,6 +38,7 @@ import {MatSelectModule} from '@angular/material/select';
     FooterComponent,
     ReserveComponent,
     ModalComponent,
+    HostDetailComponent,
   ],
   imports: [
     BrowserModule,
