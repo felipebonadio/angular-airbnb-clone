@@ -26,8 +26,6 @@ export class HostService {
   deleteHost(hostId: string): Observable<string> {
     return this.http.delete<string>(this.entityUrl + '/' + hostId);
   }
-
-
   updateHost(hostId: string, host: Host): Observable<Host> {
     return this.http.put<Host>(this.entityUrl + '/' + hostId, host);
   }

@@ -1,3 +1,30 @@
 mat-form-field {
     margin: 20px
   }
+
+  .card {
+    max-width: 35%;
+    margin: auto;
+    padding: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  mat-card-title {
+    font-size: 1.6em;
+  }
+  mat-card-content {
+    font-size: 1.3em;
+  }
+  a {
+    text-decoration: none;
+    vertical-align: middle;
+    color: black;
+  }
+  mat-card-actions {
+    font-size: 1.3em;
+  }
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

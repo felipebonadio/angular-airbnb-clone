@@ -8,5 +8,5 @@ export interface Guest {
     name: string;
     lastName: string;
     phone: string;
-    reserve: Reserve;
+    reserves: Reserve[];
 }

@@ -73,18 +73,18 @@ export class HostDetailComponent implements OnInit {
       error => this.error = error as any);
   }
 
-  onUpdate() { 
+  onUpdate() {
     this.host.name = this.hostForm.value.name;
     this.host.lastName = this.hostForm.value.lastName;
     this.host.email = this.hostForm.value.email;
     this.host.password = this.hostForm.value.password;
     this.host.phone = this.hostForm.value.phone;
-    this.hostService.updateHost(this.host.id,this.host).subscribe(
+    this.hostService.updateHost(this.host.id, this.host).subscribe(
       newHost => {
         this.host = newHost;
       },
       error => this.error = error as any);
-      
+
   }
 
 }

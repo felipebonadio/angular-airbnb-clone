@@ -52,3 +52,10 @@ button {
   align-items: center;
   justify-content: center;
 }
+h3{
+  text-align: justify;
+  text-justify: inter-word;
+}
+li {
+  margin-left: 1.5rem;
+}

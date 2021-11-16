@@ -12,10 +12,10 @@ import { Reserve } from './reserve';
 })
 export class ReserveService {
 
- 
+
   entityUrl = environment.REST_API_URL + 'reserves';
 
-  constructor(private http: HttpClient,  private router: Router, private route: ActivatedRoute, private roomService: RoomService) { }
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, private roomService: RoomService) { }
 
   getReserves(): Observable<Reserve[]> {
     return this.http.get<Reserve[]>(this.entityUrl);
@@ -25,8 +25,19 @@ export class ReserveService {
     return this.http.get<Reserve>(this.entityUrl + '/' + id);
   }
 
-  getReservesByGuest(host:string):Observable<Reserve[]>{
-    return this.http.get<Reserve[]>(this.entityUrl+ '/'+ host);
+
+  getReservesByGuest(guestId: string): Observable<Reserve[]> {
+    return this.http.get<Reserve[]>(this.entityUrl + '/guest/' + guestId);
   }
-  
+
+  createReserve(reserve: Reserve): Observable<Reserve> {
+    return this.http.post<Reserve>(this.entityUrl, reserve);
+  }
+
+  deleteReserve(reserveId: string): Observable<string> {
+    return this.http.delete<string>(this.entityUrl + '/' + reserveId);
+  }
+  updateReserve(reserveId: string, reserve: Reserve): Observable<Reserve> {
+    return this.http.put<Reserve>(this.entityUrl + '/' + reserveId, reserve);
+  }
 }

@@ -17,9 +17,16 @@
         <mat-card-title>
             Telefone: {{guest.phone}}
         </mat-card-title>
-        <mat-card-title>
-            <p>Reservas</p>
-            {{guest.reserve}}
+        <mat-card-title *ngFor="let reserve of guest.reserves">
+            <p>Reservas:</p>
+            <ul>
+               Local: {{reserve.room.title}}
+                <h3>
+                    <li>Check In: {{reserve.checkIn}}</li>
+                    <li>Check out: {{reserve.checkOut}}</li>
+                    <li>Preço: {{reserve.room.price | currency}} /dia</li>
+                </h3>
+            </ul>
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>
@@ -41,7 +48,7 @@
     </mat-card-actions>
 </mat-card>
 
-<jw-modal class ="center-modal" id="saveGuest">
+<jw-modal class="center-modal" id="saveGuest">
     <h1>Insira os dados para cadastro</h1>
     <form class="form">
         <table class="full-width" cellspacing="0">

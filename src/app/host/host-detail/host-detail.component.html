@@ -1,10 +1,3 @@
-<div class="center">
-    <button class="center" mat-icon-button (click)="openModal('saveHost')"> Clique aqui parar criar um novo host
-        <mat-icon>
-            save
-        </mat-icon>
-    </button>
-</div>
 <mat-card class="card mat-elevation-z5" *ngIf="host">
     <mat-card-header>
         <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
@@ -18,13 +11,14 @@
             Telefone: {{host.phone}}
         </mat-card-title>
         <mat-card-title>
-            <p>Quartos</p>
+            <p>Quartos:</p>
             <ul *ngFor="let room of host.rooms">
-                <li>{{room.title}}</li>
-                <li>{{room.description}}</li>
-                <li>{{room.city}}</li>
-                <li>{{room.price}}</li>
-            </ul>
+                Título: {{room.title}}
+                <h3>
+                <li>Descrição: {{room.description}}</li>
+                <li>Cidade: {{room.city}}</li>
+                <li>Preço {{room.price | currency}}</li>
+            </h3> </ul>
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>

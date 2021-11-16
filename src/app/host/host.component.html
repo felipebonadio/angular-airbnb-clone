@@ -21,11 +21,11 @@
         <mat-card-title>
             <p>Quartos</p>
             <ul *ngFor="let room of host.rooms">
-                <li>{{room.title}}</li>
-                <li>{{room.description}}</li>
+                {{room.title}}
+                <h3><li>{{room.description}}</li>
                 <li>{{room.city}}</li>
                 <li>{{room.price}}</li>
-            </ul>
+            </h3></ul>
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>

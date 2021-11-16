@@ -13,7 +13,7 @@ import { ModalService } from '../modal/modal.service';
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
-  bodyText!: string;
+  
   guests: Guest[] | undefined;
   error: Error | undefined;
 
