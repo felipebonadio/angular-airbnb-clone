@@ -12,10 +12,12 @@ import { GuestService } from '../guest.service';
   styleUrls: ['./guest-detail.component.css']
 })
 export class GuestDetailComponent implements OnInit {
-
+  error: Error | undefined;
   reserves: Reserve[] | undefined;
-  guest: Guest | undefined;
-  constructor(private route: ActivatedRoute, private reserveService: ReserveService, private guestService: GuestService, private modalService:ModalService) { }
+  guest: Guest;
+  constructor(private route: ActivatedRoute, private reserveService: ReserveService, private guestService: GuestService, private modalService: ModalService) { 
+    this.guest = {} as Guest;
+  }
 
   ngOnInit(): void {
     const paramId = String(this.route.snapshot.paramMap.get("id"));
@@ -28,5 +30,13 @@ export class GuestDetailComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+  onDelete(guest: Guest) {
+    this.guestService.deleteGuest(guest.id).subscribe(
+      response => {
+        this.guest = {} as Guest;
+        this.closeModal('deleteGuest'),
+          this.openModal('deleteOk');
+      }, error => this.error = error as any);
   }
 }

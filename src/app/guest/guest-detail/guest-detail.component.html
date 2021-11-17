@@ -34,3 +34,12 @@
         </button>
     </mat-card-actions>
 </mat-card>
+<jw-modal id="deleteGuest">
+    <h1>Tem certeza que deseja excluir?</h1>
+    <button (click)="onDelete(guest)" mat-stroked-button color="primary">Excluir</button>
+    <button (click)="closeModal('deleteGuest');" mat-stroked-button color="accent">Cancelar</button>
+</jw-modal>
+<jw-modal id="deleteOk">
+    <h1>Excluído com sucesso</h1>
+    <button (click)="closeModal('deleteOk');" mat-stroked-button color="accent">Ok</button>
+</jw-modal>

@@ -63,4 +63,5 @@ export class GuestComponent implements OnInit {
       },
       error => this.error = error as any);
   }
+  
 }

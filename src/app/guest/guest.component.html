@@ -25,12 +25,7 @@
             <mat-icon>
                 update
             </mat-icon>
-        </button>
-        <button mat-icon-button (click)="openModal('deleteGuest')">
-            <mat-icon>
-                delete
-            </mat-icon>
-        </button>
+        </button>        
     </mat-card-actions>
 </mat-card>
 
@@ -70,12 +65,5 @@
         <button type="submit" (click)="closeModal('saveGuest');" mat-stroked-button color="primary">Salvar</button>
         <button (click)="closeModal('saveGuest');" mat-stroked-button color="accent">Cancelar</button>
     </form>
-
-
 </jw-modal>
 
-<jw-modal id="reserves">
-    <h1>{{guestId}}</h1>
-
-    <button (click)="closeModal('reserves');">Close</button>
-</jw-modal>
