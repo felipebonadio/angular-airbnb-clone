@@ -13,8 +13,7 @@
             <mat-card-content>
                 <p>{{ room.description }}</p>
                 <p>{{ room.price | currency }} / noite</p>
-            </mat-card-content>
-       
+            </mat-card-content>       
         <mat-card-actions>
             Contatos:
             <a href="https://wa.me/{{ room.host.phone }}" target="_blank"><span class="material-icons"
@@ -31,14 +30,12 @@
             <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
             <mat-datepicker #checkIn></mat-datepicker>
         </mat-form-field>
-
         <mat-form-field appearance="fill">
             <mat-label>Check Out</mat-label>
             <input matInput [matDatepicker]="checkOut" formControlName="checkOutDate">
             <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
             <mat-datepicker #checkOut></mat-datepicker>
         </mat-form-field>
-
         <mat-form-field appearance="fill">
             <mat-label>Selecione um usuário</mat-label>
             <mat-select formControlName="selectedGuest">
@@ -47,7 +44,6 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-
         <button type="submit" mat-stroked-button color="primary">Salvar</button>
     </form>
 </div>

@@ -84,9 +84,9 @@
             <mat-label>Telefone</mat-label>
             <input matInput placeholder="55(14)991518232" formControlName="phone">
         </mat-form-field>
-        <button type="submit" (click)="closeModal('updateHost');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('updateHost');" mat-stroked-button color="accent">Cancelar</button>
+        <button type="submit" (click)="closeModal('updateHost');" mat-stroked-button color="primary">Salvar</button>        
     </form>
+    <button id="cancel-button" (click)="closeModal('updateHost');" mat-stroked-button color="accent">Cancelar</button>
 </jw-modal>
 
 <jw-modal id="updateRoom">
@@ -125,9 +125,7 @@
             </mat-form-field>
 
             <button type="submit" (click)="closeModal('createRoom');" mat-stroked-button
-                color="primary">Cadastrar</button>
-            <button (click)="closeModal('createRoom');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
-
-
+                color="primary">Cadastrar</button>            
+            </form>
+            <button id="cancel-button" (click)="closeModal('createRoom');" mat-stroked-button color="accent">Cancelar</button>
 </jw-modal>

@@ -36,6 +36,7 @@ export class ReserveService {
   deleteReserve(reserveId: string): Observable<string> {
     return this.http.delete<string>(this.entityUrl + '/' + reserveId);
   }
+  
   updateReserve(reserveId: string, reserve: Reserve): Observable<Reserve> {
     return this.http.put<Reserve>(this.entityUrl + '/' + reserveId, reserve);
   }
