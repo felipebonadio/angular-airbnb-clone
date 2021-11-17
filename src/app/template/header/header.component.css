@@ -31,6 +31,10 @@ mat-toolbar form button {
   border-bottom-right-radius: 50px;
 }
 
-.direita {
+.header-link {
   margin-right: 30px;
+  margin-left: 10px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
 }

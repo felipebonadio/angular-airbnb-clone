@@ -28,3 +28,7 @@ mat-form-field {
     align-items: center;
     justify-content: center;
   }
+  .contato a{
+    margin-left: 10px;
+    margin-right: 1px;
+  }
