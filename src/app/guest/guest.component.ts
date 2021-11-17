@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Guest } from './guest';
 import { GuestService } from './guest.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { EMPTY, Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 import { ModalService } from '../modal/modal.service';
 import { ReserveService } from '../reserve/reserve.service';
 import { Reserve } from '../reserve/reserve';
@@ -64,6 +61,6 @@ export class GuestComponent implements OnInit {
       error => this.error = error as any);
   }
 
-  
+
 
 }

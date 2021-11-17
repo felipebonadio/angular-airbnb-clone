@@ -1,10 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Guest } from 'src/app/guest/guest';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-header',
@@ -27,7 +24,6 @@ export class HeaderComponent implements OnInit {
 
   onSubmit(): void {
     let cityString = this.searchForm.value.city;
-
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     if (cityString === null) {

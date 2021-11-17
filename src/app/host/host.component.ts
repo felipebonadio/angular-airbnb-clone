@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { EMPTY, Observable } from 'rxjs';
 import { Host } from './host';
 import { HostService } from './host.service';
 import { ModalService } from '../modal/modal.service';
 import { FormBuilder } from '@angular/forms';
-import { Room } from '../room/room';
-
 
 @Component({
   selector: 'app-host',
