@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   REST_API_URL: 'https://spring-airbnb-startdb.herokuapp.com/api/'
 };
 
