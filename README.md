@@ -13,9 +13,15 @@ See the issues to know our development process.
 
 ## Rooms
 
+![image](https://user-images.githubusercontent.com/81599269/142230499-ae136acd-d243-4001-bf9e-628d288a92a7.png)
+
 ## Hosts
 
+![image](https://user-images.githubusercontent.com/81599269/142230571-d4749f4f-3834-460d-bbe8-5bd7ad3c39f0.png)
+
 ## Guests
+
+![image](https://user-images.githubusercontent.com/81599269/142230617-ee9a5bae-371f-4b90-8e55-d031f620132f.png)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
