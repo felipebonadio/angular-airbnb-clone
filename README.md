@@ -1,5 +1,23 @@
 # AngularAirbnbClone
 
+This project is a challenge proposed by the StartDB Staff, we had a week to create an Airbnb clone using Java Spring and Angular.
+We worked using pair programming and tried to aplly some agile concepts.
+This project utilizes our Spring Application as the backend. You can find it here: [airbnb-spring-application](https://github.com/gabriel-lima-b/spring-airbnb-clone)
+
+See the issues to know our development process.
+
+
+## Home
+
+![image](https://user-images.githubusercontent.com/19153825/142220314-54a0bff7-5745-492a-a581-cde12e5dc612.png)
+
+## Rooms
+
+## Hosts
+
+## Guests
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
 ## Development server
