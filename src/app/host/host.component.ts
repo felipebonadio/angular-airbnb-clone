@@ -51,7 +51,7 @@ export class HostComponent implements OnInit {
     this.host.lastName = this.hostForm.value.lastName;
     this.host.email = this.hostForm.value.email;
     this.host.password = this.hostForm.value.password;
-    this.host.phone = this.hostForm.value.phone;
+    this.host.phone = this.hostForm.value.phone;    
     this.hostService.createHost(host).subscribe(
       newHost => {
         this.host = newHost;
