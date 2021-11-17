@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  REST_API_URL: 'http://localhost:8080/api/'
+  REST_API_URL: 'https://spring-airbnb-startdb.herokuapp.com/api/'
 };
 
 /*
