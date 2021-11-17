@@ -5,30 +5,32 @@
         </mat-icon>
     </button>
 </div>
-<mat-card class="card mat-elevation-z5" *ngFor="let guest of guests">
-    <mat-card-header>
-        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
-        <mat-card-title>
-            Nome : {{ guest.name}} {{ guest.lastName }}
-        </mat-card-title>
-        <mat-card-title>
-            Email: {{guest.email}}
-        </mat-card-title>
-        <mat-card-title>
-            Telefone: {{guest.phone}}
-        </mat-card-title>
-        <mat-card-title *ngFor="let reserve of guest.reserves">
-            <p>Reservas:</p>
-            <ul>
-               Local: {{reserve.room.title}}
-                <h3>
-                    <li>Check In: {{reserve.checkIn}}</li>
-                    <li>Check out: {{reserve.checkOut}}</li>
-                    <li>Preço: {{reserve.room.price | currency}} /dia</li>
-                </h3>
-            </ul>
-        </mat-card-title>
-    </mat-card-header>
+<mat-card class="card mat-elevation-z5" *ngFor="let guest of guests" [attr.guestId]="guest.id">
+    <a [routerLink]="['/guests', guest.id]" >
+        <mat-card-header>
+            <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
+            <mat-card-title>
+                Nome : {{ guest.name}} {{ guest.lastName }}
+            </mat-card-title>
+            <mat-card-title>
+                Email: {{guest.email}}
+            </mat-card-title>
+            <mat-card-title>
+                Telefone: {{guest.phone}}
+            </mat-card-title>
+            <mat-card-title *ngFor="let reserve of guest.reserves">
+                <p>Reservas:</p>
+                <ul>
+                    Local: {{reserve.room.title}}
+                    <h3>
+                        <li>Check In: {{reserve.checkIn}}</li>
+                        <li>Check out: {{reserve.checkOut}}</li>
+                        <li>Preço: {{reserve.room.price | currency}} /dia</li>
+                    </h3>
+                </ul>
+            </mat-card-title>
+        </mat-card-header>
+    </a>
     <mat-card-actions>
         <button mat-icon-button (click)="openModal('updateGuest')">
             <mat-icon>
@@ -39,12 +41,7 @@
             <mat-icon>
                 delete
             </mat-icon>
-        </button>
-        <button mat-icon-button (click)="openModal('updateReserve')">
-            <mat-icon>
-                gite
-            </mat-icon>
-        </button>
+        </button>        
     </mat-card-actions>
 </mat-card>
 
@@ -132,8 +129,8 @@
     </form>
 </jw-modal>
 
-<jw-modal id="updateReserve">
-    <h1>A Custom Modal!</h1>
-    <p>Home page text: <input type="text"></p>
-    <button (click)="closeModal('updateReserve');">Close</button>
+<jw-modal id="reserves">
+    <h1>{{guestId}}</h1>
+
+    <button (click)="closeModal('reserves');">Close</button>
 </jw-modal>

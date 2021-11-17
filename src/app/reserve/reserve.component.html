@@ -1,7 +1,6 @@
 <div class="center">
     <mat-card class="card mat-elevation-z5" *ngIf="room">
-        <a [routerLink]="['/reserves', room.id]">
-            <!-- DIRECIONAMENTO PARA RESERVAS -->
+        
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
                 alt="Photo of a Shiba Inu" />
             <mat-card-header>
@@ -15,7 +14,7 @@
                 <p>{{ room.description }}</p>
                 <p>{{ room.price | currency }} / noite</p>
             </mat-card-content>
-        </a>
+       
         <mat-card-actions>
             Contatos:
             <a href="https://wa.me/{{ room.host.phone }}" target="_blank"><span class="material-icons"

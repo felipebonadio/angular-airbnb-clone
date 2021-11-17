@@ -1,0 +1,34 @@
+<mat-card class="card mat-elevation-z5" *ngIf="guest">
+
+    <mat-card-header>
+        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
+        <mat-card-title>
+            Nome : {{ guest.name}} {{ guest.lastName }}
+        </mat-card-title>
+        <mat-card-title>
+            Email: {{guest.email}}
+        </mat-card-title>
+        <mat-card-title>
+            Telefone: {{guest.phone}}
+        </mat-card-title>
+        <mat-card-title *ngFor="let reserve of reserves">
+            <p>Reservas:</p>
+            <ul>
+                Local: {{reserve.room.title}}
+                <h3>
+                    <li>Check In: {{reserve.checkIn}}</li>
+                    <li>Check out: {{reserve.checkOut}}</li>
+                    <li>Preço: {{reserve.room.price | currency}} /dia</li>
+                </h3>
+            </ul>
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-actions>
+        <button mat-icon-button (click)="openModal('deleteGuest')">
+            <mat-icon>
+                delete
+            </mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

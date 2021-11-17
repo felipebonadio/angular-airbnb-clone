@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuestDetailComponent } from './guest/guest-detail/guest-detail.component';
 import { GuestComponent } from './guest/guest.component';
 import { HomeComponent } from './home/home.component';
 import { HostDetailComponent } from './host/host-detail/host-detail.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'guests',
     component: GuestComponent,
+  },
+  {
+    path: 'guests/:id',
+    component: GuestDetailComponent,
   },
   {
     path: 'hosts',

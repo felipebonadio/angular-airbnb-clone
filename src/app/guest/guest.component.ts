@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ModalService } from '../modal/modal.service';
+import { ReserveService } from '../reserve/reserve.service';
+import { Reserve } from '../reserve/reserve';
 
 @Component({
   selector: 'app-guest',
@@ -13,31 +15,21 @@ import { ModalService } from '../modal/modal.service';
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
-  
+
   guests: Guest[] | undefined;
-  error: Error | undefined;
-
-  showMessage(msg: string, isError: boolean = false): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: isError ? ['msg-error'] : ['msg-succes'],
-    });
+  reserves: Reserve[] | undefined;
+  guestId: string;
+  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService) {
+    this.guestId = "inicializei";
   }
-
-  errorHandler(e: Error): Observable<any> {
-    this.showMessage('Erro ao trazer a lista de pessoas', true);
-    this.error = e;
-    return EMPTY;
-  }
-
-
-  constructor(private guestService: GuestService, private route: ActivatedRoute,
-    private snackBar: MatSnackBar, private modalService: ModalService) { }
 
   ngOnInit(): void {
-    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));   
+    this.guestService.getGuests().subscribe((guests) => (this.guests = guests));
+  }
+
+  showReserves(modalId: string) {
+    this.reserveService.getReservesByGuest(this.guestId).subscribe((reserves) => (this.reserves = reserves));
+    this.openModal(modalId);
   }
 
   openModal(id: string) {

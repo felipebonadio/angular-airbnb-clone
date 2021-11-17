@@ -25,6 +25,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { HostDetailComponent } from './host/host-detail/host-detail.component';
+import { GuestDetailComponent } from './guest/guest-detail/guest-detail.component';
 
 
 
@@ -40,6 +41,7 @@ import { HostDetailComponent } from './host/host-detail/host-detail.component';
     ReserveComponent,
     ModalComponent,
     HostDetailComponent,
+    GuestDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,4 +15,8 @@ export class GuestService {
   getGuests(): Observable<Guest[]> {
     return this.http.get<Guest[]>(this.entityUrl);
   }
+
+  getGuestById(id: string): Observable<Guest> {
+    return this.http.get<Guest>(this.entityUrl + '/' + id);
+  }
 }
