@@ -22,25 +22,9 @@ export class HostComponent implements OnInit {
   deleteId: string | undefined;
 
 
-  constructor(private hostService: HostService, private route: ActivatedRoute, private snackBar: MatSnackBar, private modalService: ModalService, private formBuilder: FormBuilder) {
+  constructor(private hostService: HostService, private route: ActivatedRoute, private modalService: ModalService, private formBuilder: FormBuilder) {
     this.host = {} as Host;
   }
-
-  showMessage(msg: string, isError: boolean = false): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: isError ? ['msg-error'] : ['msg-succes'],
-    });
-  }
-
-  errorHandler(e: Error): Observable<any> {
-    this.showMessage('Erro ao trazer a lista de anfitriões', true);
-    this.error = e;
-    return EMPTY;
-  }
-
 
   ngOnInit(): void {
     this.hostService.getHosts().subscribe((hosts) => (this.hosts = hosts));

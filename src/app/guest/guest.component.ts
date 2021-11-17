@@ -8,6 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 import { ModalService } from '../modal/modal.service';
 import { ReserveService } from '../reserve/reserve.service';
 import { Reserve } from '../reserve/reserve';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-guest',
@@ -15,12 +16,14 @@ import { Reserve } from '../reserve/reserve';
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
-
+  guest: Guest;
   guests: Guest[] | undefined;
   reserves: Reserve[] | undefined;
   guestId: string;
-  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService) {
+  error: Error | undefined;
+  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService, private formBuilder:FormBuilder) {
     this.guestId = "inicializei";
+    this.guest = {} as Guest;
   }
 
   ngOnInit(): void {
@@ -38,5 +41,26 @@ export class GuestComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  hostForm = this.formBuilder.group({
+    name: '',
+    lastName: '',
+    email: '',
+    password: '',
+    phone: ''
+  })
+
+  onSave(guest: Guest) {
+    this.guest.name = this.hostForm.value.name;
+    this.guest.lastName = this.hostForm.value.lastName;
+    this.guest.email = this.hostForm.value.email;
+    this.guest.password = this.hostForm.value.password;
+    this.guest.phone = this.hostForm.value.phone;
+    this.guestService.createGuest(guest).subscribe(
+      newGuest => {
+        this.guest = newGuest;
+      },
+      error => this.error = error as any);
   }
 }

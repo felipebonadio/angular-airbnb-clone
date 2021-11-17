@@ -6,7 +6,7 @@
     </button>
 </div>
 <mat-card class="card mat-elevation-z5" *ngFor="let guest of guests" [attr.guestId]="guest.id">
-    <a [routerLink]="['/guests', guest.id]" >
+    <a [routerLink]="['/guests', guest.id]">
         <mat-card-header>
             <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
             <mat-card-title>
@@ -17,18 +17,7 @@
             </mat-card-title>
             <mat-card-title>
                 Telefone: {{guest.phone}}
-            </mat-card-title>
-            <mat-card-title *ngFor="let reserve of guest.reserves">
-                <p>Reservas:</p>
-                <ul>
-                    Local: {{reserve.room.title}}
-                    <h3>
-                        <li>Check In: {{reserve.checkIn}}</li>
-                        <li>Check out: {{reserve.checkOut}}</li>
-                        <li>Preço: {{reserve.room.price | currency}} /dia</li>
-                    </h3>
-                </ul>
-            </mat-card-title>
+            </mat-card-title>            
         </mat-card-header>
     </a>
     <mat-card-actions>
@@ -41,25 +30,25 @@
             <mat-icon>
                 delete
             </mat-icon>
-        </button>        
+        </button>
     </mat-card-actions>
 </mat-card>
 
-<jw-modal class="center-modal" id="saveGuest">
+<jw-modal id="saveGuest">
     <h1>Insira os dados para cadastro</h1>
-    <form class="form">
+    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(guest)">
         <table class="full-width" cellspacing="0">
             <tr>
                 <td>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Nome</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="name">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Sobrenome</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="lastName">
                     </mat-form-field>
                 </td>
             </tr>
@@ -67,66 +56,22 @@
         <p>
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br"></textarea>
+                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
             </mat-form-field>
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Senha</mat-label>
-                <textarea matInput></textarea>
+                <textarea matInput formControlName="password"></textarea>
             </mat-form-field>
         </p>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232">
+            <input matInput placeholder="55(14)991518232" formControlName="phone">
         </mat-form-field>
-        <button (click)="closeModal('saveGuest');" mat-stroked-button color="primary">Salvar</button>
+        <button type="submit" (click)="closeModal('saveGuest');" mat-stroked-button color="primary">Salvar</button>
         <button (click)="closeModal('saveGuest');" mat-stroked-button color="accent">Cancelar</button>
     </form>
 
 
-</jw-modal>
-
-<jw-modal id="deleteGuest">
-    <h1>Tem certeza que deseja excluir?</h1>
-    <button (click)="closeModal('deleteGuest');" mat-stroked-button color="primary">Salvar</button>
-    <button (click)="closeModal('deleteGuest');" mat-stroked-button color="accent">Cancelar</button>
-</jw-modal>
-
-<jw-modal id="updateGuest">
-    <h1>Insira os dados para atualizar</h1>
-    <form class="form">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232">
-        </mat-form-field>
-        <button (click)="closeModal('updateGuest');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('updateGuest');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
 </jw-modal>
 
 <jw-modal id="reserves">

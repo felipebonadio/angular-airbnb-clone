@@ -11,8 +11,10 @@
         <mat-card-title>
             Telefone: {{guest.phone}}
         </mat-card-title>
-        <mat-card-title *ngFor="let reserve of reserves">
+        <mat-card-title>
             <p>Reservas:</p>
+        </mat-card-title>
+        <mat-card-title *ngFor="let reserve of reserves">
             <ul>
                 Local: {{reserve.room.title}}
                 <h3>

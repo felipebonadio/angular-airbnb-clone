@@ -45,9 +45,6 @@ export class ReserveComponent implements OnInit {
     this.reserve.room = this.room;
     this.reserve.guest = this.reserveForm.value.selectedGuest;
 
-    console.warn(this.reserve);
-
-
     this.reserveService.createReserve(reserve).subscribe(
       newReserve => {
         this.reserve = newReserve;
