@@ -21,7 +21,7 @@ export class GuestComponent implements OnInit {
   reserves: Reserve[] | undefined;
   guestId: string;
   error: Error | undefined;
-  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService, private formBuilder:FormBuilder) {
+  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService, private formBuilder: FormBuilder) {
     this.guestId = "inicializei";
     this.guest = {} as Guest;
   }
@@ -43,7 +43,7 @@ export class GuestComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  hostForm = this.formBuilder.group({
+  guestForm = this.formBuilder.group({
     name: '',
     lastName: '',
     email: '',
@@ -52,16 +52,18 @@ export class GuestComponent implements OnInit {
   })
 
   onSave(guest: Guest) {
-    this.guest.name = this.hostForm.value.name;
-    this.guest.lastName = this.hostForm.value.lastName;
-    this.guest.email = this.hostForm.value.email;
-    this.guest.password = this.hostForm.value.password;
-    this.guest.phone = this.hostForm.value.phone;
+    this.guest.name = this.guestForm.value.name;
+    this.guest.lastName = this.guestForm.value.lastName;
+    this.guest.email = this.guestForm.value.email;
+    this.guest.password = this.guestForm.value.password;
+    this.guest.phone = this.guestForm.value.phone;
     this.guestService.createGuest(guest).subscribe(
       newGuest => {
         this.guest = newGuest;
       },
       error => this.error = error as any);
   }
+
   
+
 }

@@ -84,7 +84,6 @@ export class HostDetailComponent implements OnInit {
         this.host = newHost;
       },
       error => this.error = error as any);
-
   }
 
 }

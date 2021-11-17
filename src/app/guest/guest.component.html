@@ -17,21 +17,23 @@
             </mat-card-title>
             <mat-card-title>
                 Telefone: {{guest.phone}}
-            </mat-card-title>            
+            </mat-card-title>
         </mat-card-header>
     </a>
     <mat-card-actions>
-        <button mat-icon-button (click)="openModal('updateGuest')">
-            <mat-icon>
-                update
-            </mat-icon>
-        </button>        
+        <a [routerLink]="['/guests', guest.id]">
+            <button mat-icon-button (click)="openModal('updateHost')"> Clique para mais detalhes
+                <mat-icon>
+                    manage_accounts
+                </mat-icon>
+            </button>
+        </a>
     </mat-card-actions>
 </mat-card>
 
 <jw-modal id="saveGuest">
     <h1>Insira os dados para cadastro</h1>
-    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(guest)">
+    <form class="form" [formGroup]="guestForm" (ngSubmit)="onSave(guest)">
         <table class="full-width" cellspacing="0">
             <tr>
                 <td>
@@ -66,4 +68,3 @@
         <button (click)="closeModal('saveGuest');" mat-stroked-button color="accent">Cancelar</button>
     </form>
 </jw-modal>
-

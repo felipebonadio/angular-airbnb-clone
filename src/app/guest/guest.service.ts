@@ -27,4 +27,7 @@ export class GuestService {
   deleteGuest(guestId: string): Observable<string> {
     return this.http.delete<string>(this.entityUrl + '/' + guestId);
   }
+  updateGuest(guestId: string, guest: Guest): Observable<Guest> {
+    return this.http.put<Guest>(this.entityUrl + '/' + guestId, guest);
+  }
 }
