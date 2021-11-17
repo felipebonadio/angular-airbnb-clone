@@ -20,11 +20,15 @@ export class RoomService {
     return this.http.get<Room[]>(this.entityUrl + '/city/' + city);
   }
 
-  getRoomByHost(host:string):Observable<Room[]>{
-    return this.http.get<Room[]>(this.entityUrl+ '/'+ host);
+  getRoomByHost(host: string): Observable<Room[]> {
+    return this.http.get<Room[]>(this.entityUrl + '/' + host);
   }
 
   getRoomById(id: string): Observable<Room> {
     return this.http.get<Room>(this.entityUrl + '/' + id);
+  }
+
+  createRoom(room: Room): Observable<Room> {
+    return this.http.post<Room>(this.entityUrl, room);
   }
 }

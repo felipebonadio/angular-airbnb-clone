@@ -6,6 +6,8 @@ import { Host } from '../host';
 import { HostService } from '../host.service';
 import { ModalService } from '../../modal/modal.service';
 import { FormBuilder } from '@angular/forms';
+import { RoomService } from 'src/app/room/room.service';
+import { Room } from 'src/app/room/room';
 
 
 
@@ -20,7 +22,12 @@ export class HostDetailComponent implements OnInit {
   error: Error | undefined;
 
 
-  constructor(private hostService: HostService, private route: ActivatedRoute, private snackBar: MatSnackBar, private modalService: ModalService, private formBuilder: FormBuilder) {
+  constructor(private hostService: HostService,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private modalService: ModalService,
+    private formBuilder: FormBuilder,
+    private roomService: RoomService) {
     this.host = {} as Host;
   }
 
@@ -62,6 +69,12 @@ export class HostDetailComponent implements OnInit {
     phone: ''
   })
 
+  roomForm = this.formBuilder.group({
+    title: '',
+    description: '',
+    city: '',
+    price: ''
+  })
 
   onDelete(host: Host) {
     this.hostService.deleteHost(host.id).subscribe(
@@ -82,6 +95,20 @@ export class HostDetailComponent implements OnInit {
     this.hostService.updateHost(this.host.id, this.host).subscribe(
       newHost => {
         this.host = newHost;
+      },
+      error => this.error = error as any);
+  }
+
+  createRoom() {
+    let room = {} as Room;
+    room.title = this.roomForm.value.title;
+    room.description = this.roomForm.value.description;
+    room.city = this.roomForm.value.city;
+    room.price = this.roomForm.value.price;
+    room.host = this.host;
+    this.roomService.createRoom(room).subscribe(
+      newRoom => {
+        room = newRoom;
       },
       error => this.error = error as any);
   }

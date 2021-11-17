@@ -33,7 +33,7 @@
                 delete
             </mat-icon>
         </button>
-        <button mat-icon-button (click)="openModal('updateRoom')">
+        <button mat-icon-button (click)="openModal('createRoom')">
             <mat-icon>
                 gite
             </mat-icon>
@@ -93,4 +93,41 @@
     <h1>A Custom Modal!</h1>
     <p>Home page text: <input type="text"></p>
     <button (click)="closeModal('updateRoom');">Close</button>
+</jw-modal>
+
+<jw-modal id="createRoom">
+    <h1>Insira os dados para cadastro</h1>
+    <form class="form" [formGroup]="roomForm" (ngSubmit)="createRoom()">
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Título</mat-label>
+                        <input matInput formControlName="title">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Descrição</mat-label>
+                        <input matInput formControlName="description">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Cidade</mat-label>
+                <textarea matInput formControlName="city"></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Preço</mat-label>
+                <textarea matInput formControlName="price"></textarea>
+            </mat-form-field>
+
+            <button type="submit" (click)="closeModal('createRoom');" mat-stroked-button
+                color="primary">Cadastrar</button>
+            <button (click)="closeModal('createRoom');" mat-stroked-button color="accent">Cancelar</button>
+    </form>
+
+
 </jw-modal>
