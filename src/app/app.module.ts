@@ -15,8 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ReserveComponent } from './reserve/reserve.component';
 import { ModalComponent } from './modal/modal.component';
@@ -26,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { HostDetailComponent } from './host/host-detail/host-detail.component';
 import { GuestDetailComponent } from './guest/guest-detail/guest-detail.component';
+import { GuestAuthComponent } from './auth/guest-auth/guest-auth.component';
 
 
 
@@ -42,6 +42,7 @@ import { GuestDetailComponent } from './guest/guest-detail/guest-detail.componen
     ModalComponent,
     HostDetailComponent,
     GuestDetailComponent,
+    GuestAuthComponent,
   ],
   imports: [
     BrowserModule,

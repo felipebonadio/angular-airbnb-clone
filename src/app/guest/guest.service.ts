@@ -9,7 +9,8 @@ import { Guest } from './guest';
 })
 export class GuestService {
   entityUrl = environment.REST_API_URL + 'guests';
-
+  guest: Guest | undefined;
+  
   constructor(private http: HttpClient) { }
 
   getGuests(): Observable<Guest[]> {

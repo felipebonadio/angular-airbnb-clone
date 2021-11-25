@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   constructor(private router: Router, private formBuilder: FormBuilder) { }
-
+ 
 
   searchForm = this.formBuilder.group({
     city: '',
@@ -32,4 +32,5 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['rooms', cityString]);
     }
   }
+
 }
