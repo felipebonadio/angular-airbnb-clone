@@ -61,7 +61,6 @@ import { GuestAuthComponent } from './auth/guest-auth/guest-auth.component';
     MatNativeDateModule,
     MatSelectModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent],

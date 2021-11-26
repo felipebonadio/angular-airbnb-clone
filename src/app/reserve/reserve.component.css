@@ -1,4 +1,4 @@
-mat-form-field {
+/*mat-form-field {
     margin: 20px
   }
 
@@ -31,4 +31,30 @@ mat-form-field {
   .contato a{
     margin-left: 10px;
     margin-right: 1px;
+  }*/
+
+  .w-100 {
+    width: 100% !important;
   }
+
+  .w-50 {
+    width: 50% !important;
+  }
+
+  .h-50 {
+    height: 50% !important;
+  }
+
+  .border {
+    text-align: center;
+    border: 1px solid white;
+    background-color: #7eafc8;
+    color: white;
+    border-radius: 6px;
+  }
+
+  .border a {
+    color: white;
+  }
+
+
