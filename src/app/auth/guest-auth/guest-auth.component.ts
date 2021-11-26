@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GuestService } from '../../guest/guest.service';
 import { CookieService } from '../../cookie.service';
-import { Auth } from '../Auth';
 import { Guest } from '../../guest/guest';
+import { Auth } from '../auth';
 
 @Component({
   selector: 'app-guest-auth',
