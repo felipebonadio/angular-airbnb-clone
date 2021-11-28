@@ -1,70 +1,66 @@
 <div class="center">
-    <button class="center" mat-icon-button (click)="openModal('saveGuest')"> Clique aqui parar criar um novo usuário
-        <mat-icon>
-            save
-        </mat-icon>
-    </button>
+  <button class="center" mat-icon-button (click)="openModal('saveGuest')">
+    <mat-icon>
+      save
+    </mat-icon>
+    Adicionar novo usuário
+  </button>
 </div>
-<mat-card class="card mat-elevation-z5" *ngFor="let guest of guests" [attr.guestId]="guest.id">
-    <a [routerLink]="['/guests', guest.id]">
-        <mat-card-header>
-            <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
-            <mat-card-title>
-                Nome : {{ guest.name}} {{ guest.lastName }}
-            </mat-card-title>
-            <mat-card-title>
-                Email: {{guest.email}}
-            </mat-card-title>
-            <mat-card-title>
-                Telefone: {{guest.phone}}
-            </mat-card-title>
-        </mat-card-header>
-    </a>
-    <mat-card-actions>
-        <a [routerLink]="['/guests', guest.id]">
-            <button mat-icon-button (click)="openModal('updateHost')"> Clique para mais detalhes
-                <mat-icon>
-                    manage_accounts
-                </mat-icon>
-            </button>
-        </a>
-    </mat-card-actions>
-</mat-card>
+
+<div class="container">
+  <div class="row">
+    <div class="col s8">
+      <ul class="collection" *ngFor="let guest of guests" [attr.guestId]="guest.id">
+        <li class="collection-item avatar">
+          <img src="../../assets/img/yuna.jpg" alt="" class="circle">
+          <span class="title">{{ guest.name}} {{ guest.lastName }}</span>
+          <p>Email: {{guest.email}} | Telefone: {{guest.phone}}</p>
+          <a [routerLink]="['/guests', guest.id]">
+            <button class="btn" mat-icon-button (click)="openModal('updateHost')"> Saber mais </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
 <jw-modal id="saveGuest">
-    <h1>Insira os dados para cadastro</h1>
-    <form class="form" [formGroup]="guestForm" (ngSubmit)="onSave(guest)">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput formControlName="name">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput formControlName="lastName">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput formControlName="password"></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232" formControlName="phone">
-        </mat-form-field>
-        <button type="submit" (click)="closeModal('saveGuest');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('saveGuest');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
+  <div class="container">
+    <p class="title-user">Insira os dados para o cadastro</p>
+    <div class="row">
+      <form class="form" [formGroup]="guestForm" (ngSubmit)="onSave(guest)">
+        <div class="input-field col s6">
+          <input formControlName="name" placeholder="Nome" type="text" class="validate">
+          <label for="name">Nome</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="lastName" placeholder="Sobrenome" type="text" class="validate">
+          <label for="lastName">Sobrenome</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="email" placeholder="Digite o email" type="text" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="password" placeholder="*******" type="password" class="validate">
+          <label for="password">Senha</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="phone" placeholder="(xx) xxxxx-xxxx" type="text" class="validate">
+          <label for="phone">Telefone</label>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" type="submit" (click)="closeModal('saveGuest')" mat-stroked-button color="primary">Salvar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" (click)="closeModal('saveGuest')" mat-stroked-button color="accent">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </jw-modal>

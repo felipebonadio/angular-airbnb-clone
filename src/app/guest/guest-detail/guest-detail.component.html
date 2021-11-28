@@ -1,88 +1,108 @@
-<mat-card class="card mat-elevation-z5" *ngIf="guest">
-
-    <mat-card-header>
-        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
-        <mat-card-title>
-            Nome : {{ guest.name}} {{ guest.lastName }}
-        </mat-card-title>
-        <mat-card-title>
-            Email: {{guest.email}}
-        </mat-card-title>
-        <mat-card-title>
-            Telefone: {{guest.phone}}
-        </mat-card-title>
-        <mat-card-title>
-            <p>Reservas:</p>
-        </mat-card-title>
-        <mat-card-title *ngFor="let reserve of reserves">
-            <ul>
-                Local: {{reserve.room.title}}
-                <h3>
-                    <li>Check In: {{reserve.checkIn}}</li>
-                    <li>Check out: {{reserve.checkOut}}</li>
-                    <li>Preço: {{reserve.room.price | currency}} /dia</li>
-                </h3>
+<div class="container">
+  <div class="row">
+    <div *ngIf="guest">
+      <div class="col s4">
+        <div class="card">
+          <ul class="card-image">
+            <img src="../../../assets/img/yuna.jpg">
+            <p class="card-title">{{ guest.name}} {{ guest.lastName }}</p>
+          </ul>
+          <div class="card-content">
+            <p>Email: {{guest.email}}</p>
+            <p>Telefone:{{guest.phone}}</p>
+            <ul *ngFor="let reserve of reserves">
+              <p>Reservas: {{reserve.room.title}}</p>
+              <li><strong>Check In:</strong> {{reserve.checkIn}}</li>
+              <li><strong>Check out:</strong> {{reserve.checkOut}}</li>
+              <li><strong>Preço:</strong> {{reserve.room.price | currency}} /dia</li>
             </ul>
-        </mat-card-title>
-    </mat-card-header>
-
-    <mat-card-actions>
-        <button mat-icon-button (click)="openModal('updateGuest')" title="Atualizar">
-            <mat-icon>
+          </div>
+          <div class="card-action">
+            <button mat-icon-button (click)="openModal('updateGuest')" title="Atualizar">
+              <mat-icon>
                 update
-            </mat-icon>
-        </button>
-        <button mat-icon-button (click)="openModal('deleteGuest')" title="Excluir usuário">
-            <mat-icon>
+              </mat-icon>
+            </button>
+            <button mat-icon-button (click)="openModal('deleteGuest')" title="Excluir usuário">
+              <mat-icon>
                 delete
-            </mat-icon>
-        </button>
-    </mat-card-actions>
-</mat-card>
+              </mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <jw-modal id="deleteGuest">
-    <h1>Tem certeza que deseja excluir?</h1>
-    <button (click)="onDelete(guest)" mat-stroked-button color="primary">Excluir</button>
-    <button (click)="closeModal('deleteGuest');" mat-stroked-button color="accent">Cancelar</button>
+  <div class="container">
+    <p class="title-user">Tem certeza que deseja excluir?</p>
+    <div class="row">
+      <div class="row">
+        <div class="col s12">
+          <button class="w-100" (click)="onDelete(guest)" mat-stroked-button color="primary">Excluir</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <button class="w-100" (click)="closeModal('deleteGuest')" mat-stroked-button color="accent">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </jw-modal>
+
 <jw-modal id="deleteOk">
-    <h1>Excluído com sucesso</h1>
-    <button (click)="closeModal('deleteOk');" mat-stroked-button color="accent">Ok</button>
+  <div class="container">
+    <p class="title-user">Excluído com sucesso</p>
+    <div class="row">
+      <div class="col s12">
+        <button class="w-100" (click)="closeModal('deleteOk')" mat-stroked-button color="accent">Ok</button>
+      </div>
+    </div>
+  </div>
 </jw-modal>
+
 
 <jw-modal id="updateGuest">
-    <h1>Insira os dados para atualizar</h1>
-    <form class="form" [formGroup]="guestForm" (ngSubmit)="onUpdate()">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput formControlName="name">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput formControlName="lastName">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput formControlName="password"></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232" formControlName="phone">
-        </mat-form-field>
-        <button type="submit" (click)="closeModal('updateGuest');" mat-stroked-button color="primary">Salvar</button>
-    </form>
-    <button id="cancel-button" (click)="closeModal('updateGuest');" mat-stroked-button color="accent">Cancelar</button>
+  <div class="container">
+    <p class="title-anfitriao">Insira os dados para atualizar</p>
+    <div class="row">
+      <form class="form" [formGroup]="guestForm" (ngSubmit)="onUpdate()">
+        <div class="input-field col s6">
+          <input formControlName="name" placeholder="Nome" type="text" class="validate">
+          <label for="name">Nome</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="lastName" placeholder="Sobrenome" type="text" class="validate">
+          <label for="lastName">Sobrenome</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="email" placeholder="Digite o email" type="text" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="password" placeholder="*******" type="password" class="validate">
+          <label for="password">Senha</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="phone" placeholder="(xx) xxxxx-xxxx" type="text" class="validate">
+          <label for="phone">Telefone</label>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" type="submit" (click)="closeModal('updateGuest');" mat-stroked-button color="primary">Salvar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button id="cancel-button" class="w-100" (click)="closeModal('updateGuest');" mat-stroked-button color="accent">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </jw-modal>
+

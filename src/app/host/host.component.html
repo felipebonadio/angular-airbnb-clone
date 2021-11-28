@@ -3,7 +3,7 @@
     <mat-icon>
       save
     </mat-icon>
-    Clique aqui parar criar um novo host
+    Adicionar novo anfitrião
   </button>
 </div>
 
@@ -126,24 +126,22 @@
   <jw-modal id="deleteOk">
     <div class="container">
       <p class="title-user">Excluído com sucesso</p>
-      <p>{{deleteId}}</p>
       <div class="row">
-        <div class="row">
-          <div class="col s12">
-            <button class="w-100" (click)="closeModal('deleteOk')" mat-stroked-button color="accent">Ok</button>
-          </div>
+        <div class="col s12">
+          <button class="w-100" (click)="closeModal('deleteOk')" mat-stroked-button color="accent">Ok</button>
+        </div>
+      </div>
+    </div>
+  </jw-modal>
+
+  <jw-modal id="updateRoom">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <button class="w-100" (click)="closeModal('updateRoom')" mat-stroked-button color="accent">Close</button>
         </div>
       </div>
     </div>
   </jw-modal>
 
 
-<!--
-
-<jw-modal id="updateRoom">
-  <h1>A Custom Modal!</h1>
-  <p>Home page text: <input type="text"></p>
-  <button (click)="closeModal('updateRoom');">Close</button>
-</jw-modal>
-
--->
