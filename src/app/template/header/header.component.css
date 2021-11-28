@@ -12,28 +12,22 @@
   background-color: transparent;
 }
 
-mat-toolbar input {
-  position: relative;
-  width: 300px;
-  text-align: center;
-  height: 40px;
-  background-color: white;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border: 0;
-}
-
 mat-toolbar form button {
   vertical-align: middle;
   background-color: white;
-  border: 0;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-radius: 50px;
+  width: 250px;
+  padding: 4px 2px;
+}
+
+.title-search {
+  color: #d1d1d1;
+  vertical-align: super;
+  font-size: 16px;
 }
 
 .header-link {
-  margin-right: 30px;
-  margin-left: 10px;
+  padding: 5px 5px;
   vertical-align: middle;
   text-decoration: none;
   color: white;

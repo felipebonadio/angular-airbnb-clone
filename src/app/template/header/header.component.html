@@ -3,16 +3,19 @@
   <div>
     <mat-toolbar>
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-        <input class="form-control" type="text" name="search" autocomplete="off" placeholder="Para onde você vai?"
-          formControlName="city"/>
-        <button type="submit" class="button">
-          <i class="material-icons matSuffix" style="color:rgb(175, 21, 93); font-size:37px">search</i>
+        <!--<input class="form-control" type="text" name="search" autocomplete="off" placeholder="Para onde você vai?"
+          formControlName="city"/>-->
+        <button type="submit" class="button form-control">
+          <i class="material-icons" style="color:rgb(175, 21, 93); font-size:30px">search</i>
+          <span class="title-search">
+            Para onde você vai?
+          </span>
         </button>
       </form>
     </mat-toolbar>
   </div>
-  <div >
-    <a class = "header-link" routerLink="/hosts">Anfitrião<span class="material-icons header-link" style="color:white; font-size:50px">gite</span></a>
-    <a class = "header-link" routerLink="/guests">Usuário<span class="material-icons header-link " style="color:white; font-size:50px">account_circle</span></a>
+  <div>
+    <a class="header-link" routerLink="/hosts"><span class="material-icons header-link">gite</span>Anfitrião</a>
+    <a class="header-link" routerLink="/guests"><span class="material-icons header-link ">account_circle</span>Entrar</a>
   </div>
 </div>
