@@ -13,15 +13,19 @@ See the issues to know our development process.
 
 ## Rooms
 
-![image](https://user-images.githubusercontent.com/81599269/142230499-ae136acd-d243-4001-bf9e-628d288a92a7.png)
+![image](https://user-images.githubusercontent.com/81599269/143911083-6d9a57c2-6da5-40f0-9cdd-68583f813ce6.png)
 
 ## Hosts
 
-![image](https://user-images.githubusercontent.com/81599269/142230571-d4749f4f-3834-460d-bbe8-5bd7ad3c39f0.png)
+![image](https://user-images.githubusercontent.com/81599269/143911158-ea0c478f-1cdb-4a49-8736-9f475043f747.png)
 
 ## Guests
 
-![image](https://user-images.githubusercontent.com/81599269/142230617-ee9a5bae-371f-4b90-8e55-d031f620132f.png)
+![image](https://user-images.githubusercontent.com/81599269/143911206-8652b289-6df6-449e-bad6-503ea1ea98e3.png)
+
+## Reserves
+
+![image](https://user-images.githubusercontent.com/81599269/143911283-c2dde68e-72fc-477b-b8da-4633e9b99fee.png)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
