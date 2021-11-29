@@ -8,34 +8,32 @@
   color: #fff;
 }
 
-.display mat-toolbar {
-  background-color: transparent;
-}
-
-mat-toolbar input {
-  position: relative;
-  width: 300px;
-  text-align: center;
-  height: 40px;
-  background-color: white;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border: 0;
-  outline: 0;
-}
-
-mat-toolbar form button {
-  vertical-align: middle;
-  background-color: white;
-  border: 0;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+.title-search {
+  color: #d1d1d1;
+  vertical-align: super;
+  font-size: 16px;
 }
 
 .header-link {
-  margin-right: 15px;
-  margin-left: 10px;
+  padding: 5px 5px;
   vertical-align: middle;
   text-decoration: none;
   color: white;
+}
+
+.search {
+  background-color: #fff;
+  border-radius: 45px;
+  width: 350px;
+}
+
+.input-modify {
+  width: 75% !important;
+  margin-left: 25px !important;
+}
+
+.btn-modify {
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0px 16px;
 }

@@ -2,32 +2,27 @@
   <h3><img src="../../assets/img/404error.jpg" alt="404 error" /></h3>
 </div>
 
-<div class="container">  
-<mat-card class="card mat-elevation-z5" *ngFor="let room of rooms">
-  <a [routerLink]="['/reserves', room.id]">   <!-- DIRECIONAMENTO PARA RESERVAS -->
-    <img mat-card-image class="img-card" src="https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287_960_720.jpg" alt="Photo of a house from Pixabay" />
-    <mat-card-header>
-      <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
-      <mat-card-title>{{ room.title }} (Hospedado por {{ room.host.name }}
-        {{ room.host.lastName }})
-      </mat-card-title>
-      <mat-card-subtitle>{{ room.city }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="desc-size">
-      <p>{{ room.description }}</p>
-      <br>
-      <p>{{ room.price | currency }} / noite</p>
-    </div>     
-    </mat-card-content>
-  </a>
-  <br>
-  <mat-card-actions class="contato">
-    Contatos:
-    <a href="https://wa.me/{{ room.host.phone }}" target="_blank"><span class="material-icons"
-        style="color: rgb(10, 189, 10)">whatsapp</span></a>
-    <a href="mailto:{{ room.host.email }}" target="_blank"><span class="material-icons"
-        style="color: red">email</span></a>
-  </mat-card-actions>
-</mat-card>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let room of rooms">
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <img src="../../assets/img/casadepraia.jpg">
+            <span class="card-title">{{ room.title }}</span>
+          </div>
+          <div class="card-content">
+            <span>Hosted by {{ room.host.name }} {{ room.host.lastName }}</span>
+            <hr style="border-color: #c3c3c321">
+            <p style="height: 150px;">{{ room.description }}</p>
+            <p>This place stays in {{ room.city }}</p>
+            <p style="margin-top: 15px;">{{ room.price | currency }} / night</p>
+          </div>
+          <div class="card-action">
+            <a [routerLink]="['/reserves', room.id]" class="btn">Make a reserve</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

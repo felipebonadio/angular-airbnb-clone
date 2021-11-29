@@ -1,139 +1,150 @@
 <div class="center">
-    <button class="center" mat-icon-button (click)="openModal('saveHost')"> Clique aqui parar criar um novo host
-        <mat-icon>
-            save
-        </mat-icon>
-    </button>
+  <button class="center" mat-icon-button (click)="openModal('saveHost')">
+    <mat-icon>
+      save
+    </mat-icon>
+    Adicionar novo anfitrião
+  </button>
 </div>
-<mat-card class="card mat-elevation-z5" *ngFor="let host of hosts">
 
-    <mat-card-header>
-        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
-        <mat-card-title>
-            Nome : {{ host.name}} {{ host.lastName }}
-        </mat-card-title>
-        <mat-card-title>
-            Email: {{host.email}}
-        </mat-card-title>
-        <mat-card-title>
-            Telefone: {{host.phone}}
-        </mat-card-title>
-        <mat-card-title>
-            <br>
-            <p>Quartos:</p>
-            <ul *ngFor="let room of host.rooms">
-                <h3>
-                    <li>Título: {{room.title}}</li>
-                    <li>Descrição: {{room.description}}</li>
-                    <li>Cidade: {{room.city}}</li>
-                    <li>Preço: {{room.price | currency}}</li>
-                </h3>
-            </ul>
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-actions>
-        <a [routerLink]="['/hosts', host.id]">
-            <mat-icon>
-                manage_accounts
-            </mat-icon>
-            <button mat-icon-button (click)="openModal('updateHost')"> Clique para mais detalhes
-            </button>
-        </a>
-    </mat-card-actions>
+<div class="container">
+  <div class="row">
+    <div class="col s8">
+      <ul class="collection" *ngFor="let host of hosts">
+        <li class="collection-item avatar">
+          <img src="../../assets/img/yuna.jpg" alt="" class="circle">
+          <span class="title">{{ host.name}} {{ host.lastName }}</span>
+          <p>Email: {{host.email}} | Telefone: {{host.phone}}</p>
+          <a [routerLink]="['/hosts', host.id]">
+            <button class="btn">Ver mais</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-</mat-card>
-
-<jw-modal id="saveHost">
-    <h1>Insira os dados para cadastro</h1>
-    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput formControlName="name">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput formControlName="lastName">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput formControlName="password"></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232" formControlName="phone">
-        </mat-form-field>
-        <button type="submit" (click)="closeModal('saveHost');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('saveHost');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
-
-
-</jw-modal>
-
-<jw-modal id="delete">
-    <h1>Tem certeza que deseja excluir?</h1>
-    <h2>{{deleteId}}</h2>
-    <button (click)="onDelete(host)" mat-stroked-button color="primary">Excluir</button>
-    <button (click)="closeModal('delete');" mat-stroked-button color="accent">Cancelar</button>
-</jw-modal>
-<jw-modal id="deleteOk">
-    <h1>Excluído com sucesso</h1>
-    <button (click)="closeModal('deleteOk');" mat-stroked-button color="accent">Ok</button>
-</jw-modal>
-
+<!-- 
 <jw-modal id="updateHost">
-    <h1>Insira os dados para atualizar</h1>
-    <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
-        <table class="full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Nome</mat-label>
-                        <input matInput formControlName="name">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="full-width" appearance="fill">
-                        <mat-label>Sobrenome</mat-label>
-                        <input matInput formControlName="lastName">
-                    </mat-form-field>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <textarea matInput placeholder="exemplo@exemplo.com.br" formControlName="email"></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <textarea matInput formControlName="password"></textarea>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Telefone</mat-label>
-            <input matInput placeholder="55(14)991518232" formControlName="phone">
-        </mat-form-field>
-        <button type="submit" (click)="closeModal('updateHost');" mat-stroked-button color="primary">Salvar</button>
-        <button (click)="closeModal('updateHost');" mat-stroked-button color="accent">Cancelar</button>
-    </form>
-</jw-modal>
+  <div class="container">
+    <p class="title-anfitriao">Atualizar dados do anfitrião</p>
+    <div class="row">
+      <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
+        <div class="input-field col s6">
+          <input formControlName="name" placeholder="Nome" type="text" class="validate">
+          <label for="name">Nome</label>
+        </div>
+        <div class="input-field col s6">
+          <input formControlName="lastName" placeholder="Sobrenome" type="text" class="validate">
+          <label for="lastName">Sobrenome</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="email" placeholder="Digite o email" type="text" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="password" placeholder="*******" type="password" class="validate">
+          <label for="password">Senha</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="phone" placeholder="(xx) xxxxx-xxxx" type="text" class="validate">
+          <label for="phone">Telefone</label>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" type="submit" (click)="closeModal('updateHost');" mat-stroked-button
+              color="primary">Salvar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" (click)="closeModal('updateHost');" mat-stroked-button
+              color="accent">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div> -->
 
-<jw-modal id="updateRoom">
-    <h1>A Custom Modal!</h1>
-    <p>Home page text: <input type="text"></p>
-    <button (click)="closeModal('updateRoom');">Close</button>
-</jw-modal>
+
+
+  <jw-modal id="saveHost">
+    <div class="container">
+      <p class="title-user">Insira os dados para o cadastro</p>
+      <div class="row">
+        <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
+          <div class="input-field col s6">
+            <input formControlName="name"  type="text" class="validate">
+            <label for="name">Nome</label>
+          </div>
+          <div class="input-field col s6">
+            <input formControlName="lastName"  type="text" class="validate">
+            <label for="lastName">Sobrenome</label>
+          </div>
+          <div class="input-field col s12">
+            <input formControlName="email"  type="text" class="validate">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <input formControlName="password"  type="password" class="validate">
+            <label for="password">Senha</label>
+          </div>
+          <div class="input-field col s12">
+            <input formControlName="phone" type="text" class="validate">
+            <label for="phone">Telefone</label>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <button class="w-100" type="submit" (click)="closeModal('saveHost')" mat-stroked-button
+                color="primary">Salvar</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <button class="w-100" (click)="closeModal('saveHost')" mat-stroked-button color="accent">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </jw-modal>
+
+  <jw-modal id="delete">
+    <div class="container">
+      <p class="title-user">Tem certeza que deseja excluir?</p>
+      <p>{{deleteId}}</p>
+      <div class="row">
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" (click)="onDelete(host)" mat-stroked-button color="primary">Excluir</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="w-100" (click)="closeModal('delete')" mat-stroked-button color="accent">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </jw-modal>
+
+  <jw-modal id="deleteOk">
+    <div class="container">
+      <p class="title-user">Excluído com sucesso</p>
+      <div class="row">
+        <div class="col s12">
+          <button class="w-100" (click)="closeModal('deleteOk')" mat-stroked-button color="accent">Ok</button>
+        </div>
+      </div>
+    </div>
+  </jw-modal>
+
+  <jw-modal id="updateRoom">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <button class="w-100" (click)="closeModal('updateRoom')" mat-stroked-button color="accent">Close</button>
+        </div>
+      </div>
+    </div>
+  </jw-modal>

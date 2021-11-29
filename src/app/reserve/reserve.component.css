@@ -1,80 +1,60 @@
-mat-form-field {
-  margin: 20px;
-}
+/*mat-form-field {
+    margin: 20px
+  }
 
-.card {
-  max-width: 26.3%;
-  margin: auto;
-  padding: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-mat-card-title {
-  font-size: 1.6em;
-}
-mat-card-content {
-  font-size: 1.3em;
-}
-a {
-  text-decoration: none;
-  vertical-align: middle;
-  color: black;
-}
-mat-card-actions {
-  font-size: 1.3em;
-}
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.contato a {
-  margin-left: 10px;
-  margin-right: 1px;
-}
+  .card {
+    max-width: 35%;
+    margin: auto;
+    padding: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  mat-card-title {
+    font-size: 1.6em;
+  }
+  mat-card-content {
+    font-size: 1.3em;
+  }
+  a {
+    text-decoration: none;
+    vertical-align: middle;
+    color: black;
+  }
+  mat-card-actions {
+    font-size: 1.3em;
+  }
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contato a{
+    margin-left: 10px;
+    margin-right: 1px;
+  }*/
 
-.grid-form {
-  display: grid !important;
-  grid-template-rows: auto auto;
-  grid-template-columns: auto auto auto;  
-  grid-gap: 10px;
-  padding: 10px;
-}
+  .w-100 {
+    width: 100% !important;
+  }
 
-.row{
-  display: grid;
-  grid-template-rows: auto;
-}
+  .w-50 {
+    width: 50% !important;
+  }
 
-.col{
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: center;
-  margin-right: 250px;
-}
+  .h-50 {
+    height: 50% !important;
+  }
 
-button{
-  vertical-align: center;
-  width: 100px;
-  height: 40%;
-  margin-top: 25px;
-  margin-left: 85px;
-}
+  .border {
+    text-align: center;
+    border: 1px solid white;
+    background-color: #7eafc8;
+    color: white;
+    border-radius: 6px;
+  }
 
-.contato{
-  margin-left: 1px;
-}
+  .border a {
+    color: white;
+  }
 
-.contato a{
-  margin-left: 10px;
-  margin-right: 1px;
-}
-.desc-size {
-  height: 130px;
-  max-width: 450px;
-}
 
-.img-card {
-  max-width: 500px;
-  max-height: 400px;
-}

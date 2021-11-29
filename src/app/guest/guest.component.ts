@@ -18,7 +18,7 @@ export class GuestComponent implements OnInit {
   reserves: Reserve[] | undefined;
   guestId: string;
   error: Error | undefined;
-  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService, private formBuilder: FormBuilder) {
+  constructor(private guestService: GuestService, private route: ActivatedRoute, private modalService: ModalService, private reserveService: ReserveService, private formBuilder: FormBuilder, private router: Router) {
     this.guestId = "inicializei";
     this.guest = {} as Guest;
   }
@@ -59,6 +59,11 @@ export class GuestComponent implements OnInit {
         this.guest = newGuest;
       },
       error => this.error = error as any);
+
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+
+      this.router.navigateByUrl(`/guests`);
   }
 
 

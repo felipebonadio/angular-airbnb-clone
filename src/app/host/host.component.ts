@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Host } from './host';
 import { HostService } from './host.service';
 import { ModalService } from '../modal/modal.service';
@@ -18,7 +18,7 @@ export class HostComponent implements OnInit {
   deleteId: string | undefined;
 
 
-  constructor(private hostService: HostService, private route: ActivatedRoute, private modalService: ModalService, private formBuilder: FormBuilder) {
+  constructor(private hostService: HostService, private route: ActivatedRoute, private modalService: ModalService, private formBuilder: FormBuilder, private router: Router) {
     this.host = {} as Host;
   }
 
@@ -57,6 +57,12 @@ export class HostComponent implements OnInit {
         this.host = newHost;
       },
       error => this.error = error as any);
+
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+
+      this.router.navigateByUrl(`/hosts`);
+    
   }
 
   onDelete(host: Host) {

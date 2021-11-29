@@ -1,5 +1,4 @@
 .image {
-  height: 84.7%;
   background-size: cover;
   background-image: url("../../assets/img/back.jpeg");
   background-position: 50% 50%;
@@ -9,6 +8,7 @@
   justify-content: center;
   align-items: center;
   color: white;
+  height: 100%;
 }
 
 .centro {
