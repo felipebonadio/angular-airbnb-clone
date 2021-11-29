@@ -27,8 +27,6 @@ import { HostDetailComponent } from './host/host-detail/host-detail.component';
 import { GuestDetailComponent } from './guest/guest-detail/guest-detail.component';
 import { GuestAuthComponent } from './auth/guest-auth/guest-auth.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +59,6 @@ import { GuestAuthComponent } from './auth/guest-auth/guest-auth.component';
     MatNativeDateModule,
     MatSelectModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent],

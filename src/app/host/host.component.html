@@ -19,21 +19,24 @@
             Telefone: {{host.phone}}
         </mat-card-title>
         <mat-card-title>
-            <p>Quartos</p>
+            <br>
+            <p>Quartos:</p>
             <ul *ngFor="let room of host.rooms">
-                {{room.title}}
-                <h3><li>{{room.description}}</li>
-                <li>{{room.city}}</li>
-                <li>{{room.price | currency}}</li>
-            </h3></ul>
+                <h3>
+                    <li>Título: {{room.title}}</li>
+                    <li>Descrição: {{room.description}}</li>
+                    <li>Cidade: {{room.city}}</li>
+                    <li>Preço: {{room.price | currency}}</li>
+                </h3>
+            </ul>
         </mat-card-title>
     </mat-card-header>
     <mat-card-actions>
         <a [routerLink]="['/hosts', host.id]">
+            <mat-icon>
+                manage_accounts
+            </mat-icon>
             <button mat-icon-button (click)="openModal('updateHost')"> Clique para mais detalhes
-                <mat-icon>
-                    manage_accounts
-                </mat-icon>
             </button>
         </a>
     </mat-card-actions>

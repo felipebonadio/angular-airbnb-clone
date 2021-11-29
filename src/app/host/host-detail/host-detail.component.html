@@ -11,10 +11,12 @@
             Telefone: {{host.phone}}
         </mat-card-title>
         <mat-card-title>
+            <br>
             <p>Quartos:</p>
             <ul *ngFor="let room of host.rooms">
-                Título: {{room.title}}
+                
                 <h3>
+                    <li>Título: {{room.title}}</li>
                     <li>Descrição: {{room.description}}</li>
                     <li>Cidade: {{room.city}}</li>
                     <li>Preço {{room.price | currency}}</li>

@@ -6,26 +6,24 @@
     </button>
 </div>
 <mat-card class="card mat-elevation-z5" *ngFor="let guest of guests" [attr.guestId]="guest.id">
-    <a [routerLink]="['/guests', guest.id]">
-        <mat-card-header>
-            <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
-            <mat-card-title>
-                Nome : {{ guest.name}} {{ guest.lastName }}
-            </mat-card-title>
-            <mat-card-title>
-                Email: {{guest.email}}
-            </mat-card-title>
-            <mat-card-title>
-                Telefone: {{guest.phone}}
-            </mat-card-title>
-        </mat-card-header>
-    </a>
+    <mat-card-header>
+        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" />
+        <mat-card-title>
+            Nome : {{ guest.name}} {{ guest.lastName }}
+        </mat-card-title>
+        <mat-card-title>
+            Email: {{guest.email}}
+        </mat-card-title>
+        <mat-card-title>
+            Telefone: {{guest.phone}}
+        </mat-card-title>
+    </mat-card-header>
     <mat-card-actions>
         <a [routerLink]="['/guests', guest.id]">
+            <mat-icon>
+                manage_accounts
+            </mat-icon>
             <button mat-icon-button (click)="openModal('updateHost')"> Clique para mais detalhes
-                <mat-icon>
-                    manage_accounts
-                </mat-icon>
             </button>
         </a>
     </mat-card-actions>

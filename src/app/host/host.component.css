@@ -54,6 +54,7 @@ button{
 }
 a{
   text-decoration: none;
+  color: black;
 }
 h3{
   text-align: justify;
@@ -61,4 +62,7 @@ h3{
 }
 li {
   margin-left: 1.5rem;
+}
+mat-icon{
+  vertical-align: middle;  
 }

@@ -21,6 +21,7 @@ mat-toolbar input {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   border: 0;
+  outline: 0;
 }
 
 mat-toolbar form button {
@@ -32,7 +33,7 @@ mat-toolbar form button {
 }
 
 .header-link {
-  margin-right: 30px;
+  margin-right: 15px;
   margin-left: 10px;
   vertical-align: middle;
   text-decoration: none;

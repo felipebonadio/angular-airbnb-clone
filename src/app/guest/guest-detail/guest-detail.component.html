@@ -12,12 +12,13 @@
             Telefone: {{guest.phone}}
         </mat-card-title>
         <mat-card-title>
+            <br>
             <p>Reservas:</p>
         </mat-card-title>
         <mat-card-title *ngFor="let reserve of reserves">
             <ul>
-                Local: {{reserve.room.title}}
                 <h3>
+                    <li>Local: {{reserve.room.title}}</li>
                     <li>Check In: {{reserve.checkIn}}</li>
                     <li>Check out: {{reserve.checkOut}}</li>
                     <li>Preço: {{reserve.room.price | currency}} /dia</li>
