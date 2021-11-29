@@ -16,7 +16,7 @@
           <span class="title">{{ guest.name}} {{ guest.lastName }}</span>
           <p>Email: {{guest.email}} | Telefone: {{guest.phone}}</p>
           <a [routerLink]="['/guests', guest.id]">
-            <button class="btn" mat-icon-button (click)="openModal('updateHost')"> Saber mais </button>
+            <button class="btn" (click)="openModal('updateHost')">Saber mais</button>
           </a>
         </li>
       </ul>

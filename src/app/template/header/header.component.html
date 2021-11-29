@@ -1,21 +1,19 @@
 <div class="display">
   <div><a routerLink=""><img src="../../../assets/img/logo.jpg" alt="logo"></a> </div>
   <div>
-    <mat-toolbar>
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-        <!--<input class="form-control" type="text" name="search" autocomplete="off" placeholder="Para onde você vai?"
-          formControlName="city"/>-->
-        <button type="submit" class="button form-control">
-          <i class="material-icons" style="color:rgb(175, 21, 93); font-size:30px">search</i>
-          <span class="title-search">
-            Para onde você vai?
-          </span>
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div class="search">
+        <input class="form-control input-modify" type="text" name="search" autocomplete="off" placeholder="Para onde você vai?"
+          formControlName="city" />
+          <button type="submit" class="btn btn-modify"><i class="material-icons"
+            style="color:rgb(175, 21, 93); font-size:30px">search</i>
         </button>
-      </form>
-    </mat-toolbar>
+      </div>
+    </form>
   </div>
   <div>
     <a class="header-link" routerLink="/hosts"><span class="material-icons header-link">gite</span>Anfitrião</a>
-    <a class="header-link" routerLink="/guests"><span class="material-icons header-link ">account_circle</span>Entrar</a>
+    <a class="header-link" routerLink="/guests"><span
+        class="material-icons header-link ">account_circle</span>Entrar</a>
   </div>
 </div>

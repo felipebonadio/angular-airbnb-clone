@@ -15,7 +15,9 @@
           <img src="../../assets/img/yuna.jpg" alt="" class="circle">
           <span class="title">{{ host.name}} {{ host.lastName }}</span>
           <p>Email: {{host.email}} | Telefone: {{host.phone}}</p>
-          <button class="btn" (click)="openModal('updateHost')"> Atualizar cadastro</button>
+          <a [routerLink]="['/hosts', host.id]">
+            <button class="btn">Ver mais</button>
+          </a>
         </li>
       </ul>
     </div>
@@ -50,12 +52,14 @@
         </div>
         <div class="row">
           <div class="col s12">
-            <button class="w-100" type="submit" (click)="closeModal('updateHost');" mat-stroked-button color="primary">Salvar</button>
+            <button class="w-100" type="submit" (click)="closeModal('updateHost');" mat-stroked-button
+              color="primary">Salvar</button>
           </div>
         </div>
         <div class="row">
           <div class="col s12">
-            <button class="w-100" (click)="closeModal('updateHost');" mat-stroked-button color="accent">Cancelar</button>
+            <button class="w-100" (click)="closeModal('updateHost');" mat-stroked-button
+              color="accent">Cancelar</button>
           </div>
         </div>
       </form>
@@ -91,7 +95,8 @@
           </div>
           <div class="row">
             <div class="col s12">
-              <button class="w-100" type="submit" (click)="closeModal('saveHost')" mat-stroked-button color="primary">Salvar</button>
+              <button class="w-100" type="submit" (click)="closeModal('saveHost')" mat-stroked-button
+                color="primary">Salvar</button>
             </div>
           </div>
           <div class="row">
@@ -143,5 +148,3 @@
       </div>
     </div>
   </jw-modal>
-
-
