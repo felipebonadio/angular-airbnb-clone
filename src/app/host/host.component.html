@@ -24,7 +24,7 @@
   </div>
 </div>
 
-
+<!-- 
 <jw-modal id="updateHost">
   <div class="container">
     <p class="title-anfitriao">Atualizar dados do anfitrião</p>
@@ -64,7 +64,7 @@
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -74,23 +74,23 @@
       <div class="row">
         <form class="form" [formGroup]="hostForm" (ngSubmit)="onSave(host)">
           <div class="input-field col s6">
-            <input formControlName="name" placeholder="Nome" type="text" class="validate">
+            <input formControlName="name"  type="text" class="validate">
             <label for="name">Nome</label>
           </div>
           <div class="input-field col s6">
-            <input formControlName="lastName" placeholder="Sobrenome" type="text" class="validate">
+            <input formControlName="lastName"  type="text" class="validate">
             <label for="lastName">Sobrenome</label>
           </div>
           <div class="input-field col s12">
-            <input formControlName="email" placeholder="Digite o email" type="text" class="validate">
+            <input formControlName="email"  type="text" class="validate">
             <label for="email">Email</label>
           </div>
           <div class="input-field col s12">
-            <input formControlName="password" placeholder="*******" type="password" class="validate">
+            <input formControlName="password"  type="password" class="validate">
             <label for="password">Senha</label>
           </div>
           <div class="input-field col s12">
-            <input formControlName="phone" placeholder="(xx) xxxxx-xxxx" type="text" class="validate">
+            <input formControlName="phone" type="text" class="validate">
             <label for="phone">Telefone</label>
           </div>
           <div class="row">

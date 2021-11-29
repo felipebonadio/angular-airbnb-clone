@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-image">
             <img src="../../../assets/img/yuna.jpg">
-            <p class="card-title">{{ host.name}} {{ host.lastName }}</p>
+            <p class="card-title"><strong>{{ host.name}} {{ host.lastName }}</strong></p>
           </div>
           <div class="card-content">
             <p>Email: {{host.email}}</p>
@@ -78,23 +78,23 @@
     <div class="row">
       <form class="form" [formGroup]="hostForm" (ngSubmit)="onUpdate()">
         <div class="input-field col s6">
-          <input formControlName="name" placeholder="Nome" type="text" class="validate">
+          <input formControlName="name"  type="text" class="validate">
           <label for="name">Nome</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="lastName" placeholder="Sobrenome" type="text" class="validate">
+          <input formControlName="lastName"  type="text" class="validate">
           <label for="lastName">Sobrenome</label>
         </div>
         <div class="input-field col s12">
-          <input formControlName="email" placeholder="Digite o email" type="text" class="validate">
+          <input formControlName="email"  type="text" class="validate">
           <label for="email">Email</label>
         </div>
         <div class="input-field col s12">
-          <input formControlName="password" placeholder="*******" type="password" class="validate">
+          <input formControlName="password"  type="password" class="validate">
           <label for="password">Senha</label>
         </div>
         <div class="input-field col s12">
-          <input formControlName="phone" placeholder="(xx) xxxxx-xxxx" type="text" class="validate">
+          <input formControlName="phone" type="text" class="validate">
           <label for="phone">Telefone</label>
         </div>
         <div class="row">
@@ -130,8 +130,8 @@
     <div class="row">
       <form class="form" [formGroup]="roomForm" (ngSubmit)="createRoom()">
         <div class="input-field col s6">
-          <input formControlName="title" placeholder="Título do post" type="text" class="validate">
-          <label for="title">Título</label>
+          <input formControlName="title" placeholder="Nome do local" type="text" class="validate">
+          <label for="title">Nome</label>
         </div>
         <div class="input-field col s6">
           <input formControlName="description" placeholder="Descrição do local" type="text" class="validate">
