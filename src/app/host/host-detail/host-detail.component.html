@@ -130,19 +130,19 @@
     <div class="row">
       <form class="form" [formGroup]="roomForm" (ngSubmit)="createRoom()">
         <div class="input-field col s6">
-          <input formControlName="title" placeholder="Nome do local" type="text" class="validate">
+          <input formControlName="title"  type="text" class="validate">
           <label for="title">Nome</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="description" placeholder="Descrição do local" type="text" class="validate">
+          <input formControlName="description"  type="text" class="validate">
           <label for="description">Descrição</label>
         </div>
         <div class="input-field col s12">
-          <input formControlName="city" placeholder="Cidade" type="text" class="validate">
+          <input formControlName="city"  type="text" class="validate">
           <label for="city">Cidade</label>
         </div>
         <div class="input-field col s12">
-          <input formControlName="price" placeholder="R$ ..." type="text" class="validate">
+          <input formControlName="price"  type="text" class="validate">
           <label for="price">Preço</label>
         </div>
         <div class="row">

@@ -15,7 +15,8 @@
             <span>Hosted by {{ room.host.name }} {{ room.host.lastName }}</span>
             <hr style="border-color: #c3c3c321">
             <p style="height: 150px;">{{ room.description }}</p>
-            <p>This place stays in {{ room.city }}</p>
+            <br>
+            <p style="width: 300px; margin-top: 10px;">This place stays in  {{ room.city }}</p>
             <p style="margin-top: 15px;">{{ room.price | currency }} / night</p>
           </div>
           <div class="card-action">
